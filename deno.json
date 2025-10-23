@@ -1,0 +1,10 @@
+{
+  "tasks": {
+    "dev": "deno run -A npm:vite",
+    "build": "deno run -A npm:typescript/tsc -b && deno run -A npm:vite build",
+    "preview": "deno run -A npm:vite preview",
+    "lint": "deno run -A npm:eslint .",
+    "fmt": "deno run -A npm:prettier --write .",
+    "fmt:check": "deno run -A npm:prettier --check ."
+  }
+}
