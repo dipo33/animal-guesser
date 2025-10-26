@@ -1,16 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  ChevronDown,
-  Globe,
   Home,
-  Languages,
   PawPrint,
   RotateCcw,
   Settings,
@@ -19,11 +9,10 @@ import {
 } from "lucide-react";
 import React from "react";
 import "@/globals.css";
+import { Link } from "react-router-dom";
+import LanguageSelector from '@/components/controls/LanguageSelector.tsx';
 
-const languages = ["EN", "CS", "SK"];
-
-export default function Navbar() {
-  const [lang, setLang] = React.useState("EN");
+export function Navbar() {
   const [muted, setMuted] = React.useState(false);
 
   return (
@@ -45,50 +34,25 @@ export default function Navbar() {
 
         <div className="ml-auto flex items-center gap-2 sm:gap-3">
           <Button
+            asChild
             variant="ghost"
             className="text-white/80 hover:text-white hover:bg-white/10"
-            onClick={() => setScreen("home")}
           >
-            <Home className="mr-2 h-4 w-4" /> Home
+            <Link to="/">
+              <Home className="mr-2 h-4 w-4" /> Home
+            </Link>
           </Button>
           <Button
             variant="ghost"
             className="text-white/80 hover:text-white hover:bg-white/10"
             onClick={() => {
-              setScreen("game");
-              setProgress(0);
+              /* TODO: Restart the game */
             }}
           >
             <RotateCcw className="mr-2 h-4 w-4" /> Restart
           </Button>
 
-          {/* Language */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="outline"
-                className="border-white/15 bg-white/5 text-white/90 hover:bg-white/10"
-              >
-                <Languages className="mr-2 h-4 w-4" /> {lang}{" "}
-                <ChevronDown className="ml-1 h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-36">
-              {languages.map((l) => (
-                <DropdownMenuItem
-                  key={l}
-                  onClick={() => setLang(l)}
-                  className={"cursor-pointer"}
-                >
-                  {l}
-                </DropdownMenuItem>
-              ))}
-              <DropdownMenuSeparator />
-              <DropdownMenuItem className="cursor-pointer">
-                <Globe className="mr-2 h-4 w-4" /> Manage languages…
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <LanguageSelector></LanguageSelector>
 
           {/* Sound */}
           <Button
