@@ -1,4 +1,5 @@
 import React from 'react';
+import BubbleSection from '@/components/containers/BubbleSection.tsx';
 
 export function PrivacyPage() {
   return (
@@ -21,7 +22,7 @@ export function PrivacyPage() {
 
       {/* Sections */}
       <div className="mt-8 space-y-6">
-        <Section title="What We Collect">
+        <BubbleSection title="What We Collect">
           <ul className="list-disc pl-5 space-y-1 text-white/80">
             <li>
               <span className="text-white">Game telemetry</span>: yes/no
@@ -40,9 +41,9 @@ export function PrivacyPage() {
               collect names, emails, or precise location by default.
             </li>
           </ul>
-        </Section>
+        </BubbleSection>
 
-        <Section title="How We Use Data">
+        <BubbleSection title="How We Use Data">
           <ul className="list-disc pl-5 space-y-1 text-white/80">
             <li>To run the guessing game and improve question selection.</li>
             <li>To measure performance and detect abuse or bugs.</li>
@@ -50,9 +51,9 @@ export function PrivacyPage() {
               To train/adjust heuristics or models with aggregated stats only.
             </li>
           </ul>
-        </Section>
+        </BubbleSection>
 
-        <Section title="Storage & Retention">
+        <BubbleSection title="Storage & Retention">
           <p className="text-white/80">
             Sessions are stored with a random ID. We keep raw logs for{' '}
             <span className="text-white">30–90 days</span> (configure as needed)
@@ -63,9 +64,9 @@ export function PrivacyPage() {
             </span>
             .
           </p>
-        </Section>
+        </BubbleSection>
 
-        <Section title="Sharing & Third Parties">
+        <BubbleSection title="Sharing & Third Parties">
           <p className="text-white/80">
             We don’t sell personal data. We may use hosting and analytics
             providers. Example placeholders:
@@ -85,9 +86,9 @@ export function PrivacyPage() {
               (IP anonymization on).
             </li>
           </ul>
-        </Section>
+        </BubbleSection>
 
-        <Section title="Cookies & Local Storage">
+        <BubbleSection title="Cookies & Local Storage">
           <ul className="list-disc pl-5 space-y-1 text-white/80">
             <li>
               Language preference, mute setting, and theme are stored locally.
@@ -101,25 +102,25 @@ export function PrivacyPage() {
               mock; toggle in Settings.
             </li>
           </ul>
-        </Section>
+        </BubbleSection>
 
-        <Section title="Children’s Privacy">
+        <BubbleSection title="Children’s Privacy">
           <p className="text-white/80">
             Animal Guesser is family‑friendly but not designed for children
             under 13 without parental guidance. We do not knowingly collect
             personal information from children.
           </p>
-        </Section>
+        </BubbleSection>
 
-        <Section title="Your Rights">
+        <BubbleSection title="Your Rights">
           <ul className="list-disc pl-5 space-y-1 text-white/80">
             <li>Access, export, or delete session data.</li>
             <li>Opt out of analytics and personalized improvements.</li>
             <li>Region-specific rights (e.g., GDPR/CCPA) will be honored.</li>
           </ul>
-        </Section>
+        </BubbleSection>
 
-        <Section title="Contact">
+        <BubbleSection title="Contact">
           <p className="text-white/80">
             Questions? Email{' '}
             <a
@@ -131,17 +132,8 @@ export function PrivacyPage() {
             . For data requests, include your session ID from{' '}
             <span className="text-white">Settings → About</span>.
           </p>
-        </Section>
+        </BubbleSection>
       </div>
     </main>
-  );
-}
-
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <section className="rounded-2xl backdrop-blur-xl bg-white/5 border border-white/10 p-6">
-      <h2 className="text-xl font-semibold tracking-tight text-white/95">{title}</h2>
-      <div className="mt-3 space-y-2">{children}</div>
-    </section>
   );
 }

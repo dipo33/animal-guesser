@@ -3,6 +3,7 @@ import Layout from './components/Layout.tsx'
 import HomePage from '@/pages/HomePage.tsx';
 import { Routes, Route } from "react-router-dom";
 import { PrivacyPage } from '@/pages/PrivacyPage.tsx';
+import AboutPage from '@/pages/AboutPage.tsx';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="privacy" element={<PrivacyPage />} />
+        <Route path="about" element={<AboutPage />} />
         {/*<Route path="game" element={<Game />} />    /!* path="/game" *!/*/}
       </Route>
 

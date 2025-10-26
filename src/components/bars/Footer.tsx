@@ -13,9 +13,9 @@ export default function Footer() {
           <Link className="hover:text-white" to="/privacy">
             Privacy
           </Link>
-          <a className="hover:text-white" href="#">
+          <Link className="hover:text-white" to="/about">
             About
-          </a>
+          </Link>
           <div className="flex items-center gap-2">
             Dark Mode{' '}
             <Switch
