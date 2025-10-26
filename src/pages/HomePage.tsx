@@ -12,11 +12,14 @@ import {
 import { Input } from '@/components/ui/input.tsx';
 import { motion } from 'framer-motion';
 import { Play, Skull } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 function onStartClassic() {}
 function onStartQuick() {}
 
 export default function HomePage() {
+  const { t } = useTranslation();
+
   return (
     <main className="mx-auto max-w-[1200px] px-6 py-10 my-auto">
       <Card className="rounded-3xl glass shadow-2xl overflow-hidden p-0">
@@ -36,8 +39,8 @@ export default function HomePage() {
                 transition={{ duration: 0.4 }}
                 className="text-4xl md:text-5xl font-semibold tracking-tight text-white/95"
               >
-                Think of an animal.
-                <br /> We'll find it in ~20 questions.
+                {t("think_of_animal")}
+                <br /> {t("we-will-find-it")}
               </motion.h1>
               <p className="mt-4 text-white/70 max-w-prose">
                 Answer simple <span className="text-white">Yes/No</span>{' '}

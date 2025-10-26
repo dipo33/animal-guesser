@@ -23,9 +23,12 @@
     "npm:eslint@^9.38.0": "9.38.0",
     "npm:framer-motion@^12.23.24": "12.23.24_react@19.2.0_react-dom@19.2.0__react@19.2.0",
     "npm:globals@^16.4.0": "16.4.0",
+    "npm:i18next-browser-languagedetector@^8.2.0": "8.2.0",
+    "npm:i18next@^25.6.0": "25.6.0_typescript@5.9.3",
     "npm:lucide-react@0.548": "0.548.0_react@19.2.0",
     "npm:prettier@^3.6.2": "3.6.2",
     "npm:react-dom@^19.1.1": "19.2.0_react@19.2.0",
+    "npm:react-i18next@^16.2.0": "16.2.0_i18next@25.6.0__typescript@5.9.3_react@19.2.0_typescript@5.9.3",
     "npm:react-router-dom@^7.9.4": "7.9.4_react@19.2.0_react-dom@19.2.0__react@19.2.0",
     "npm:react@^19.1.1": "19.2.0",
     "npm:tailwind-merge@^3.3.1": "3.3.1",
@@ -145,6 +148,9 @@
         "@babel/core",
         "@babel/helper-plugin-utils"
       ]
+    },
+    "@babel/runtime@7.28.4": {
+      "integrity": "sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ=="
     },
     "@babel/template@7.27.2": {
       "integrity": "sha512-LPDZ85aEJyYSd18/DkjNh4/y1ntkE5KwUHWTiqgRxruuZL2F1yuHligVHLvcHY2vMHXttKFpJn6LwfI7cw7ODw==",
@@ -2139,6 +2145,28 @@
         "function-bind"
       ]
     },
+    "html-parse-stringify@3.0.1": {
+      "integrity": "sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==",
+      "dependencies": [
+        "void-elements"
+      ]
+    },
+    "i18next-browser-languagedetector@8.2.0": {
+      "integrity": "sha512-P+3zEKLnOF0qmiesW383vsLdtQVyKtCNA9cjSoKCppTKPQVfKd2W8hbVo5ZhNJKDqeM7BOcvNoKJOjpHh4Js9g==",
+      "dependencies": [
+        "@babel/runtime"
+      ]
+    },
+    "i18next@25.6.0_typescript@5.9.3": {
+      "integrity": "sha512-tTn8fLrwBYtnclpL5aPXK/tAYBLWVvoHM1zdfXoRNLcI+RvtMsoZRV98ePlaW3khHYKuNh/Q65W/+NVFUeIwVw==",
+      "dependencies": [
+        "@babel/runtime",
+        "typescript"
+      ],
+      "optionalPeers": [
+        "typescript"
+      ]
+    },
     "ignore@5.3.2": {
       "integrity": "sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g=="
     },
@@ -2652,6 +2680,20 @@
         "scheduler"
       ]
     },
+    "react-i18next@16.2.0_i18next@25.6.0__typescript@5.9.3_react@19.2.0_typescript@5.9.3": {
+      "integrity": "sha512-giCEDa6NtQYvuLGW9xaBo4HCVxT0Y8jrOpX/uSnd+lZ3Dmm/2BNrGNEgRZzWDkSobmE6IWPJ+/Ow9Rhi/gP6+g==",
+      "dependencies": [
+        "@babel/runtime",
+        "html-parse-stringify",
+        "i18next",
+        "react",
+        "typescript",
+        "use-sync-external-store"
+      ],
+      "optionalPeers": [
+        "typescript"
+      ]
+    },
     "react-refresh@0.17.0": {
       "integrity": "sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ=="
     },
@@ -3112,6 +3154,12 @@
         "@types/react"
       ]
     },
+    "use-sync-external-store@1.6.0_react@19.2.0": {
+      "integrity": "sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==",
+      "dependencies": [
+        "react"
+      ]
+    },
     "vite@7.1.12_@types+node@24.9.1_picomatch@4.0.3": {
       "integrity": "sha512-ZWyE8YXEXqJrrSLvYgrRP7p62OziLW7xI5HYGWFzOvupfAlrLvURSzv/FyGyy0eidogEM3ujU+kUG1zuHgb6Ug==",
       "dependencies": [
@@ -3130,6 +3178,9 @@
         "@types/node"
       ],
       "bin": true
+    },
+    "void-elements@3.1.0": {
+      "integrity": "sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w=="
     },
     "which-boxed-primitive@1.1.1": {
       "integrity": "sha512-TbX3mj8n0odCBFVlY8AxkqcHASw3L60jIuF8jFP78az3C2YhmGvqbHBpAjTRH2/xqYunrJ9g1jSyjCjpoWzIAA==",
@@ -3225,9 +3276,12 @@
         "npm:eslint@^9.38.0",
         "npm:framer-motion@^12.23.24",
         "npm:globals@^16.4.0",
+        "npm:i18next-browser-languagedetector@^8.2.0",
+        "npm:i18next@^25.6.0",
         "npm:lucide-react@0.548",
         "npm:prettier@^3.6.2",
         "npm:react-dom@^19.1.1",
+        "npm:react-i18next@^16.2.0",
         "npm:react-router-dom@^7.9.4",
         "npm:react@^19.1.1",
         "npm:tailwind-merge@^3.3.1",

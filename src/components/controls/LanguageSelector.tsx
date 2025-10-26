@@ -1,4 +1,5 @@
 import * as React from "react";
+import i18n from "@/i18n";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -30,9 +31,8 @@ type LanguageSelectorProps = {
 export default function LanguageSelector({
   value,
   onChange,
-  defaultCode = "en-US",
 }: LanguageSelectorProps) {
-  const [internalCode, setInternalCode] = React.useState(defaultCode);
+  const [internalCode, setInternalCode] = React.useState(i18n.language);
   const selectedCode = value ?? internalCode;
 
   const selected = React.useMemo(
@@ -43,6 +43,7 @@ export default function LanguageSelector({
   const handleChange = (code: string) => {
     setInternalCode(code);
     onChange?.(code);
+    void i18n.changeLanguage(code);
   };
 
   return (
