@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="mt-auto glass">
+    <footer className="glass">
       <div className="mx-auto max-w-[1200px] px-6 py-4 flex flex-col sm:flex-row items-center gap-3 justify-between text-white/60 text-xs">
         <div>© {new Date().getFullYear()} Animal Guesser • v0.1</div>
         <div className="flex items-center gap-4">
