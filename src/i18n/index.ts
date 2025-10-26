@@ -1,28 +1,31 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-
-import enUS from "./locales/en-US/common.json";
-import cs from "./locales/cs/common.json";
-import sk from "./locales/sk/common.json";
+import Backend from "i18next-http-backend";
 
 void i18n
+  .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    resources: {
-      "en-US": { common: enUS },
-      "cs": { common: cs },
-      "sk": { common: sk },
-    },
     fallbackLng: "en-US",
     supportedLngs: ["en-US", "cs", "sk"],
     ns: ["common"],
     defaultNS: "common",
     interpolation: { escapeValue: false },
+    backend: {
+      loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/{{ns}}.json`,
+      queryStringParams: { v: "1.0.0" },
+    },
+    load: "currentOnly",
+    lowerCaseLng: false,
     detection: {
       order: ["localStorage", "navigator", "htmlTag"],
       caches: ["localStorage"],
+    },
+
+    react: {
+      useSuspense: true,
     },
   });
 
