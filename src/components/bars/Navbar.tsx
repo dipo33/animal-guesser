@@ -1,20 +1,12 @@
-import { Button } from "@/components/ui/button";
-import {
-  Home,
-  PawPrint,
-  RotateCcw,
-  Settings,
-  Volume2,
-  VolumeX,
-} from "lucide-react";
-import React from "react";
-import "@/globals.css";
-import { Link } from "react-router-dom";
+import { Button } from '@/components/ui/button';
+import { Home, PawPrint, RotateCcw, Settings } from 'lucide-react';
+import React from 'react';
+import '@/globals.css';
 import LanguageSelector from '@/components/controls/LanguageSelector.tsx';
+import SoundControl from '@/components/controls/SoundControl.tsx';
+import { Link } from 'react-router-dom';
 
 export function Navbar() {
-  const [muted, setMuted] = React.useState(false);
-
   return (
     <header className={`sticky top-0 z-40 glass shadow-xl`}>
       <div className="mx-auto max-w-[1200px] px-6 py-4 flex items-center gap-4">
@@ -53,17 +45,7 @@ export function Navbar() {
           </Button>
 
           <LanguageSelector></LanguageSelector>
-
-          {/* Sound */}
-          <Button
-            variant="ghost"
-            className="text-white/80 hover:text-white hover:bg-white/10"
-            onClick={() => setMuted((s) => !s)}
-          >
-            {muted
-              ? <VolumeX className="h-5 w-5" />
-              : <Volume2 className="h-5 w-5" />}
-          </Button>
+          <SoundControl />
 
           {/* Settings */}
           <Button
