@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@reference "tailwindcss";
+
+@tailwind utilities;
+
+:root {
+    --text: #E6EAF2;
+    --subtext: #9BA6B2;
+    --bg-from: #0a0f1f;
+    --bg-via: #080d19;
+    --bg-to: #060b14;
+}
+
+@layer utilities {
+    .app-gradient {
+        @apply bg-gradient-to-br from-[var(--bg-from)] via-[var(--bg-via)] to-[var(--bg-to)];
+    }
+
+    .glass {
+        @apply backdrop-blur-xl bg-white/5 border border-white/10
+    }
+
+    .text-text {
+        @apply text-[var(--text)];
+    }
+
+    .text-subtext {
+        @apply text-[var(--subtext)];
+    }
+}
