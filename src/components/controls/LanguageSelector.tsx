@@ -50,7 +50,7 @@ export default function LanguageSelector({
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
-          className="border-white/15 bg-white/5 text-white/90 hover:bg-white/10 hover:text-white"
+          className="border-white/15 bg-white/5 text-white/90 hover:bg-white/10 hover:text-white cursor-pointer"
         >
           <Languages className="mr-2 h-4 w-4" />
           <span className="inline-block w-7 text-left truncate align-middle">

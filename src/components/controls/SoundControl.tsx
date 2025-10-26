@@ -24,7 +24,7 @@ export default function SoundControl({
   return (
     <Button
       variant="ghost"
-      className="text-white/80 hover:text-white hover:bg-white/10"
+      className="text-white/80 hover:text-white hover:bg-white/10 cursor-pointer"
       onClick={handleChange}
     >
       {muted

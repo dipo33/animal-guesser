@@ -36,7 +36,7 @@ export function Navbar() {
           </Button>
           <Button
             variant="ghost"
-            className="text-white/80 hover:text-white hover:bg-white/10"
+            className="text-white/80 hover:text-white hover:bg-white/10 cursor-pointer"
             onClick={() => {
               /* TODO: Restart the game */
             }}
@@ -50,7 +50,7 @@ export function Navbar() {
           {/* Settings */}
           <Button
             variant="ghost"
-            className="text-white/80 hover:text-white hover:bg-white/10"
+            className="text-white/80 hover:text-white hover:bg-white/10 cursor-pointer"
           >
             <Settings className="h-5 w-5" />
           </Button>

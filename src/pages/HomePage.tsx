@@ -48,7 +48,7 @@ export default function HomePage() {
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <Button
                   size="lg"
-                  className="rounded-xl px-7 py-6 text-base bg-cyan-400/90 hover:bg-cyan-300/90 text-black shadow-[0_8px_24px_rgba(34,211,238,0.35)]"
+                  className="rounded-xl px-7 py-6 text-base bg-cyan-400/90 hover:bg-cyan-300/90 text-black shadow-[0_8px_24px_rgba(34,211,238,0.35)] cursor-pointer"
                   onClick={onStartClassic}
                 >
                   <Play className="mr-2 h-5 w-5" /> Start Classic
@@ -56,7 +56,7 @@ export default function HomePage() {
                 <Button
                   size="lg"
                   variant="secondary"
-                  className="rounded-xl px-7 py-6 text-base bg-white/10 hover:bg-white/20 border border-white/20 text-white/90"
+                  className="rounded-xl px-7 py-6 text-base bg-white/10 hover:bg-white/20 border border-white/20 text-white/90 cursor-pointer"
                   onClick={onStartQuick}
                 >
                   <Skull className="mr-2 h-5 w-5" /> Expert Mode
@@ -134,8 +134,8 @@ export default function HomePage() {
           <CardContent className="text-white/70 text-sm">
             Resume your last session instantly.
             <div className="mt-4 flex gap-3">
-              <Button className="bg-cyan-400/90 hover:bg-cyan-300/90 text-black shadow-[0_8px_24px_rgba(34,211,238,0.35)]">Resume</Button>
-              <Button variant="outline" className="border-white/20 bg-white/10 text-white/90 hover:text-white/90 hover:bg-white/20">Discard</Button>
+              <Button className="bg-cyan-400/90 hover:bg-cyan-300/90 text-black shadow-[0_8px_24px_rgba(34,211,238,0.35)] cursor-pointer">Resume</Button>
+              <Button variant="outline" className="border-white/20 bg-white/10 text-white/90 hover:text-white/90 hover:bg-white/20 cursor-pointer">Discard</Button>
             </div>
           </CardContent>
         </Card>
@@ -170,7 +170,7 @@ export default function HomePage() {
                 placeholder="Suggest a question…"
                 className="bg-white/5 border-white/15 text-white placeholder:text-white/40"
               />
-              <Button className="bg-white/10 hover:bg-white/20 border border-white/20 text-white">
+              <Button className="bg-white/10 hover:bg-white/20 border border-white/20 text-white cursor-pointer">
                 Send
               </Button>
             </div>

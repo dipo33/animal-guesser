@@ -25,7 +25,7 @@ export default function Footer() {
              hover:data-[state=unchecked]:bg-white/25
              hover:data-[state=checked]:bg-cyan-300/90
              data-[state=checked]:shadow-[0_8px_24px_rgba(34,211,238,0.35)]
-             transition-colors"
+             transition-colors cursor-pointer"
             />
           </div>
         </div>
