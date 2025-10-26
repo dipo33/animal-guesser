@@ -40,7 +40,7 @@ export default function HomePage() {
                 className="text-4xl md:text-5xl font-semibold tracking-tight text-white/95"
               >
                 {t("think_of_animal")}
-                <br /> {t("we-will-find-it")}
+                <br /> {t("we_will_find_it")}
               </motion.h1>
               <p className="mt-4 text-white/70 max-w-prose">
                 Answer simple <span className="text-white">Yes/No</span>{' '}
