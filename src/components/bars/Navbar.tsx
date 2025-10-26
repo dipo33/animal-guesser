@@ -1,12 +1,15 @@
-import { Button } from "@/components/ui/button";
-import { Home, PawPrint, RotateCcw, Settings } from "lucide-react";
-import React from "react";
-import "@/globals.css";
-import LanguageSelector from "@/components/controls/LanguageSelector.tsx";
-import SoundControl from "@/components/controls/SoundControl.tsx";
-import { Link } from "react-router-dom";
+import { Button } from '@/components/ui/button';
+import { Home, PawPrint, RotateCcw, Settings } from 'lucide-react';
+import React from 'react';
+import '@/globals.css';
+import LanguageSelector from '@/components/controls/LanguageSelector.tsx';
+import SoundControl from '@/components/controls/SoundControl.tsx';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 export function Navbar() {
+  const { t } = useTranslation();
+
   return (
     <header className={`sticky top-0 z-40 glass shadow-xl`}>
       <div className="mx-auto max-w-[1200px] px-6 py-4 flex items-center gap-4">
@@ -19,9 +22,7 @@ export function Navbar() {
               <div className="text-lg font-semibold tracking-tight">
                 Animal Guesser
               </div>
-              <div className="text-xs text-white/60">
-                Think of an animal. We’ll find it.
-              </div>
+              <div className="text-xs text-white/60">{t('app.motto')}</div>
             </div>
           </div>
         </Link>
@@ -33,7 +34,7 @@ export function Navbar() {
             className="text-white/80 hover:text-white hover:bg-white/10"
           >
             <Link to="/">
-              <Home className="mr-2 h-4 w-4" /> Home
+              <Home className="mr-2 h-4 w-4" /> {t('button.home')}
             </Link>
           </Button>
           <Button
@@ -43,7 +44,7 @@ export function Navbar() {
               /* TODO: Restart the game */
             }}
           >
-            <RotateCcw className="mr-2 h-4 w-4" /> Restart
+            <RotateCcw className="mr-2 h-4 w-4" /> {t('button.restart')}
           </Button>
 
           <LanguageSelector></LanguageSelector>

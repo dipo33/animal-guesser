@@ -1,4 +1,47 @@
 {
+  "app.motto": "Vymysli si zvíře. My ho uhodneme.",
+  "app.tagline": "Odpovídej na jednoduché <0>ano/ne</0> otázky. S každou odpovědí jsme blíž tomu, na jaké zvíře myslíš.",
+
+  "button.home": "Domů",
+  "button.restart": "Restartovat",
+  "button.start_classic": "Klasický mód",
+  "button.expert_mode": "Expertní mód",
+  "button.resume": "Pokračovat",
+  "button.discard": "Zahodit",
+  "button.send": "Odeslat",
+  "button.dark_mode": "Tmavý režim",
+
+  "placeholder.suggest_question": "Navrhnout otázku…",
+
+  "features.no_login": "Bez registrace",
+  "features.multilingual": "Vícejazyčné",
+  "features.multilingual.desc": "Hraj ve svém jazyce. Můžeš ho kdykoli změnit v horní liště.",
+  "features.open_source": "Open-source backend",
+
+  "guide.step_1.title": "1. Vymysli",
+  "guide.step_1.desc": "Vyber si libovolné zvíře. Nech si ho pro sebe.",
+  "guide.step_2.title": "2. Odpovídej",
+  "guide.step_2.desc": "Odpovídej Ano/Ne/Nevím.",
+  "guide.step_3.title": "3. Hádáme",
+  "guide.step_3.desc": "S rostoucí jistotou předpovídáme správnou odpověď.",
+
+  "animal.fox": "Liška",
+  "animal.lion": "Lev",
+  "animal.panda": "Panda",
+  "animal.owl": "Sova",
+  "animal.dolphin": "Delfín",
+  "animal.kangaroo": "Klokan",
+
+  "section.privacy": "Ochrana soukromí",
+  "section.about": "O projektu",
+
+  "keyword.language": "Jazyk",
+  "keyword.contribute": "Přispět",
+
+  "contribute.desc": "Navrhni nové otázky nebo zvířata a pomoz zlepšit model.",
+  "continue_where_left": "Pokračovat tam, kde jsi skončil",
+  "resume_session": "Pokračuj v poslední hře.",
+  "trending_animals": "Oblíbená zvířata",
   "think_of_animal": "Vymysli si zvíře.",
   "we_will_find_it": "Uhodneme ho v ~20 otázkách."
 }

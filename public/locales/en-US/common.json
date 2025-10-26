@@ -1,4 +1,47 @@
 {
+  "app.motto": "Think of an animal. We’ll find it.",
+  "app.tagline": "Answer simple <0>Yes/No</0> questions. Our guesser narrows down possibilities with every tap.",
+
+  "button.home": "Home",
+  "button.restart": "Restart",
+  "button.start_classic": "Start Classic",
+  "button.expert_mode": "Expert Mode",
+  "button.resume": "Resume",
+  "button.discard": "Discard",
+  "button.send": "Send",
+  "button.dark_mode": "Dark Mode",
+
+  "placeholder.suggest_question": "Suggest a question…",
+
+  "features.no_login": "No login needed",
+  "features.multilingual": "Multilingual",
+  "features.multilingual.desc": "Play in your language. Switch anytime from the top bar.",
+  "features.open_source": "Open-source backend",
+
+  "guide.step_1.title": "1. Think",
+  "guide.step_1.desc": "Pick any animal. Keep it secret.",
+  "guide.step_2.title": "2. Answer",
+  "guide.step_2.desc": "Tap Yes/No/Not sure.",
+  "guide.step_3.title": "3. Guess",
+  "guide.step_3.desc": "We predict with confidence.",
+
+  "animal.fox": "Fox",
+  "animal.lion": "Lion",
+  "animal.panda": "Panda",
+  "animal.owl": "Owl",
+  "animal.dolphin": "Dolphin",
+  "animal.kangaroo": "Kangaroo",
+
+  "section.privacy": "Privacy",
+  "section.about": "About",
+
+  "keyword.language": "Language",
+  "keyword.contribute": "Contribute",
+
+  "contribute.desc": "Suggest new questions or animals to improve the model.",
+  "continue_where_left": "Continue where you left",
+  "resume_session": "Resume your last session instantly.",
+  "trending_animals": "Trending animals",
   "think_of_animal": "Think of an animal.",
   "we_will_find_it": "We'll find it in ~20 questions."
 }

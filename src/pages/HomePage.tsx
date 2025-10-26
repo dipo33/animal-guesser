@@ -12,7 +12,7 @@ import {
 import { Input } from '@/components/ui/input.tsx';
 import { motion } from 'framer-motion';
 import { Play, Skull } from 'lucide-react';
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from 'react-i18next';
 
 function onStartClassic() {}
 function onStartQuick() {}
@@ -39,13 +39,14 @@ export default function HomePage() {
                 transition={{ duration: 0.4 }}
                 className="text-4xl md:text-5xl font-semibold tracking-tight text-white/95"
               >
-                {t("think_of_animal")}
-                <br /> {t("we_will_find_it")}
+                {t('think_of_animal')}
+                <br /> {t('we_will_find_it')}
               </motion.h1>
               <p className="mt-4 text-white/70 max-w-prose">
-                Answer simple <span className="text-white">Yes/No</span>{' '}
-                questions. Our guesser narrows down possibilities with every
-                tap.
+                <Trans
+                  i18nKey="app.tagline"
+                  components={[<span key="bold" className="text-white" />]}
+                />
               </p>
 
               <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -54,7 +55,7 @@ export default function HomePage() {
                   className="rounded-xl px-7 py-6 text-base bg-cyan-400/90 hover:bg-cyan-300/90 text-black shadow-[0_8px_24px_rgba(34,211,238,0.35)] cursor-pointer"
                   onClick={onStartClassic}
                 >
-                  <Play className="mr-2 h-5 w-5" /> Start Classic
+                  <Play className="mr-2 h-5 w-5" /> {t('button.start_classic')}
                 </Button>
                 <Button
                   size="lg"
@@ -62,7 +63,7 @@ export default function HomePage() {
                   className="rounded-xl px-7 py-6 text-base bg-white/10 hover:bg-white/20 border border-white/20 text-white/90 cursor-pointer"
                   onClick={onStartQuick}
                 >
-                  <Skull className="mr-2 h-5 w-5" /> Expert Mode
+                  <Skull className="mr-2 h-5 w-5" /> {t('button.expert_mode')}
                 </Button>
               </div>
 
@@ -71,47 +72,50 @@ export default function HomePage() {
                   variant="outline"
                   className="border-white/15 text-white/70 px-3 py-1"
                 >
-                  No login needed
+                  {t('features.no_login')}
                 </Badge>
                 <Badge
                   variant="outline"
                   className="border-white/15 text-white/70 px-3 py-1"
                 >
-                  Multilingual
+                  {t('features.multilingual')}
                 </Badge>
                 <Badge
                   variant="outline"
                   className="border-white/15 text-white/70 px-3 py-1"
                 >
-                  Open-source backend
+                  {t('features.open_source')}
                 </Badge>
               </div>
             </div>
             <div className="p-8 md:p-12 border-t md:border-t-0 md:border-l border-white/10 bg-white/5">
               <div className="grid sm:grid-cols-3 gap-4">
                 <FeatureCard
-                  title="1. Think"
-                  desc="Pick any animal. Keep it secret."
+                  title={t('guide.step_1.title')}
+                  desc={t('guide.step_1.desc')}
                 />
-                <FeatureCard title="2. Answer" desc="Tap Yes/No/Not sure." />
                 <FeatureCard
-                  title="3. Guess"
-                  desc="We predict with confidence."
+                  title={t('guide.step_2.title')}
+                  desc={t('guide.step_2.desc')}
+                />
+                <FeatureCard
+                  title={t('guide.step_3.title')}
+                  desc={t('guide.step_3.desc')}
                 />
               </div>
 
               <div className="mt-6">
                 <div className="text-white/80 font-medium mb-3">
-                  Trending animals
+                  {t('trending_animals')}
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {[
-                    '🦊 Fox',
-                    '🦁 Lion',
-                    '🐼 Panda',
-                    '🦉 Owl',
-                    '🐬 Dolphin',
-                    '🦘 Kangaroo',
+                    `🦊 ${t('animal.fox')}`,
+                    `🦁 ${t('animal.lion')}`,
+                    `🐼 ${t('animal.panda')}`,
+                    `🦉 ${t('animal.owl')}`,
+                    `🐬 ${t('animal.dolphin')}`,
+                    `🦘 ${t('animal.kangaroo')}`,
                   ].map((t) => (
                     <Badge
                       key={t}
@@ -131,24 +135,33 @@ export default function HomePage() {
         <Card className="glass rounded-2xl">
           <CardHeader className="pb-2">
             <CardTitle className="text-white/90">
-              Continue where you left
+              {t('continue_where_left')}
             </CardTitle>
           </CardHeader>
           <CardContent className="text-white/70 text-sm">
-            Resume your last session instantly.
+            {t('resume_session')}
             <div className="mt-4 flex gap-3">
-              <Button className="bg-cyan-400/90 hover:bg-cyan-300/90 text-black shadow-[0_8px_24px_rgba(34,211,238,0.35)] cursor-pointer">Resume</Button>
-              <Button variant="outline" className="border-white/20 bg-white/10 text-white/90 hover:text-white/90 hover:bg-white/20 cursor-pointer">Discard</Button>
+              <Button className="bg-cyan-400/90 hover:bg-cyan-300/90 text-black shadow-[0_8px_24px_rgba(34,211,238,0.35)] cursor-pointer">
+                {t('button.resume')}
+              </Button>
+              <Button
+                variant="outline"
+                className="border-white/20 bg-white/10 text-white/90 hover:text-white/90 hover:bg-white/20 cursor-pointer"
+              >
+                {t('button.discard')}
+              </Button>
             </div>
           </CardContent>
         </Card>
 
         <Card className="glass rounded-2xl">
           <CardHeader className="pb-2">
-            <CardTitle className="text-white/90">Language</CardTitle>
+            <CardTitle className="text-white/90">
+              {t('keyword.language')}
+            </CardTitle>
           </CardHeader>
           <CardContent className="text-white/70 text-sm">
-            Play in your language. Switch anytime from the top bar.
+            {t('features.multilingual.desc')}
             <div className="mt-3 flex flex-wrap gap-2">
               {['ENG', 'CZE', 'SVK'].map((l) => (
                 <Badge
@@ -164,17 +177,19 @@ export default function HomePage() {
 
         <Card className="glass rounded-2xl">
           <CardHeader className="pb-2">
-            <CardTitle className="text-white/90">Contribute</CardTitle>
+            <CardTitle className="text-white/90">
+              {t('keyword.contribute')}
+            </CardTitle>
           </CardHeader>
           <CardContent className="text-white/70 text-sm">
-            Suggest new questions or animals to improve the model.
+            {t('contribute.desc')}
             <div className="mt-3 flex gap-2">
               <Input
-                placeholder="Suggest a question…"
+                placeholder={t('placeholder.suggest_question')}
                 className="bg-white/5 border-white/15 text-white placeholder:text-white/40"
               />
               <Button className="bg-white/10 hover:bg-white/20 border border-white/20 text-white cursor-pointer">
-                Send
+                {t('button.send')}
               </Button>
             </div>
           </CardContent>

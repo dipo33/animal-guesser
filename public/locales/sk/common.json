@@ -1,4 +1,47 @@
 {
+  "app.motto": "Vymysli si  zviera. My ho uhádneme.",
+  "app.tagline": "Odpovedaj na jednoduché <0>áno/nie</0> otázky. S každou odpoveďou sme bližšie k tomu, na aké zviera myslíš",
+
+  "button.home": "Domov",
+  "button.restart": "Reštartovať",
+  "button.start_classic": "Klasický mód",
+  "button.expert_mode": "Expertný mód",
+  "button.resume": "Pokračovať",
+  "button.discard": "Zahodiť",
+  "button.send": "Odoslať",
+  "button.dark_mode": "Tmavý režim",
+
+  "placeholder.suggest_question": "Navrhnúť otázku…",
+
+  "features.no_login": "Bez registrácie",
+  "features.multilingual": "Viacjazyčné",
+  "features.multilingual.desc": "Hraj vo svojom jazyku. Prepni si ho kedykoľvek v hornej lište.",
+  "features.open_source": "Open-source backend",
+
+  "guide.step_1.title": "1. Vymysli",
+  "guide.step_1.desc": "Vyber si ľubovoľné zviera. Nechaj si ho pre seba.",
+  "guide.step_2.title": "2. Odpovedaj",
+  "guide.step_2.desc": "Odpovedaj na Áno/Nie/Neviem.",
+  "guide.step_3.title": "3. Hádame",
+  "guide.step_3.desc": "S rastúcou istotou predpovedáme správnu odpoveď.",
+
+  "animal.fox": "Líška",
+  "animal.lion": "Lev",
+  "animal.panda": "Panda",
+  "animal.owl": "Sova",
+  "animal.dolphin": "Delfín",
+  "animal.kangaroo": "Kengura",
+
+  "section.privacy": "Ochrana súkromia",
+  "section.about": "O projekte",
+
+  "keyword.language": "Jazyk",
+  "keyword.contribute": "Prispieť",
+
+  "contribute.desc": "Navrhni nové otázky alebo zvieratá a pomôž vylepšiť model.",
+  "continue_where_left": "Pokračovať tam, kde si skončil",
+  "resume_session": "Pokračuj v poslednej hre.",
+  "trending_animals": "Populárne zvieratá",
   "think_of_animal": "Vymysli si zviera.",
   "we_will_find_it": "Uhádneme ho v ~20 otázkach."
 }
