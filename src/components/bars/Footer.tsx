@@ -21,9 +21,9 @@ export default function Footer() {
             <Switch
               className="ml-1
              data-[state=unchecked]:bg-white/15
-             data-[state=checked]:bg-blue-500
+             data-[state=checked]:bg-cyan-400/90
              hover:data-[state=unchecked]:bg-white/25
-             hover:data-[state=checked]:bg-blue-600
+             hover:data-[state=checked]:bg-cyan-300/90
              transition-colors"
             />
           </div>
