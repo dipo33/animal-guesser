@@ -1,9 +1,9 @@
-import MockApp from './Mock.tsx';
-import Layout from './components/Layout.tsx'
-import HomePage from '@/pages/HomePage.tsx';
-import { Routes, Route } from "react-router-dom";
-import { PrivacyPage } from '@/pages/PrivacyPage.tsx';
 import AboutPage from '@/pages/AboutPage.tsx';
+import HomePage from '@/pages/HomePage.tsx';
+import { PrivacyPage } from '@/pages/PrivacyPage.tsx';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './components/Layout.tsx';
+import MockApp from './Mock.tsx';
 
 function App() {
   return (

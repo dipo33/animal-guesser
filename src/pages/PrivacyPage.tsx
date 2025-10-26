@@ -1,5 +1,5 @@
-import React from 'react';
 import BubbleSection from '@/components/containers/BubbleSection.tsx';
+import React from 'react';
 
 export function PrivacyPage() {
   return (
@@ -10,7 +10,7 @@ export function PrivacyPage() {
           Privacy Policy
         </h1>
         <p className="mt-2 text-white/70">
-          Last updated: {new Date("2025-10-26").toISOString().slice(0, 10)}
+          Last updated: {new Date('2025-10-26').toISOString().slice(0, 10)}
         </p>
         <p className="mt-4 text-white/80">
           This mock page describes how{' '}

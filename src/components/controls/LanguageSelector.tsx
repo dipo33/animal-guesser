@@ -1,14 +1,14 @@
-import * as React from "react";
-import i18n from "@/i18n";
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { ChevronDown, Languages } from "lucide-react";
+} from '@/components/ui/dropdown-menu';
+import i18n from '@/i18n';
+import { ChevronDown, Languages } from 'lucide-react';
+import * as React from 'react';
 
 type Language = {
   code: string;
@@ -17,9 +17,9 @@ type Language = {
 };
 
 const LANGUAGES: Language[] = [
-  { code: "en-US", fullName: "English (US)", shortLabel: "ENG" },
-  { code: "cs", fullName: "Čeština", shortLabel: "CZE" },
-  { code: "sk", fullName: "Slovenčina", shortLabel: "SVK" },
+  { code: 'en-US', fullName: 'English (US)', shortLabel: 'ENG' },
+  { code: 'cs', fullName: 'Čeština', shortLabel: 'CZE' },
+  { code: 'sk', fullName: 'Slovenčina', shortLabel: 'SVK' },
 ];
 
 type LanguageSelectorProps = {
