@@ -2,12 +2,14 @@ import MockApp from './Mock.tsx';
 import Layout from './components/Layout.tsx'
 import HomePage from '@/pages/HomePage.tsx';
 import { Routes, Route } from "react-router-dom";
+import { PrivacyPage } from '@/pages/PrivacyPage.tsx';
 
 function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<HomePage />} />          {/* path="/" */}
+        <Route index element={<HomePage />} />
+        <Route path="privacy" element={<PrivacyPage />} />
         {/*<Route path="game" element={<Game />} />    /!* path="/game" *!/*/}
       </Route>
 

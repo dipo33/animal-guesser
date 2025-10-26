@@ -1,8 +1,5 @@
 import React from 'react';
 import '@/globals.css';
-import { Navbar } from '@/components/bars/Navbar.tsx';
-import AmbientGlow from '@/components/effects/AmbientGlow.tsx';
-
 
 const palette = {
   accent: '#22d3ee', // cyan-400
@@ -17,12 +14,5 @@ const palette = {
 const languages = ['EN', 'CS', 'DE', 'ES']; // example set
 
 export default function HomePage() {
-  return (
-    <div
-      className={`min-h-screen w-full relative overflow-hidden bg-gradient-to-br app-gradient text-text`}
-    >
-      <AmbientGlow />
-      <Navbar />
-    </div>
-  );
+  return <></>;
 }

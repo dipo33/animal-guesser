@@ -1,6 +1,7 @@
 import { Switch } from "@/components/ui/switch.tsx";
 import "@/globals.css";
 import React from "react";
+import { Link } from 'react-router-dom';
 
 
 export default function Footer() {
@@ -9,9 +10,9 @@ export default function Footer() {
       <div className="mx-auto max-w-[1200px] px-6 py-4 flex flex-col sm:flex-row items-center gap-3 justify-between text-white/60 text-xs">
         <div>© {new Date().getFullYear()} Animal Guesser • v0.1</div>
         <div className="flex items-center gap-4">
-          <a className="hover:text-white" href="#">
+          <Link className="hover:text-white" to="/privacy">
             Privacy
-          </a>
+          </Link>
           <a className="hover:text-white" href="#">
             About
           </a>

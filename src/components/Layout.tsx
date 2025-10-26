@@ -1,8 +1,9 @@
 import React from 'react';
 import '@/globals.css';
+import Footer from '@/components/bars/Footer.tsx';
 import { Navbar } from '@/components/bars/Navbar.tsx';
 import AmbientGlow from '@/components/effects/AmbientGlow.tsx';
-import Footer from '@/components/bars/Footer.tsx';
+import { Outlet } from 'react-router-dom';
 
 export default function Layout() {
   return (
@@ -11,6 +12,7 @@ export default function Layout() {
     >
       <AmbientGlow />
       <Navbar />
+      <Outlet />
       <Footer />
     </div>
   );
