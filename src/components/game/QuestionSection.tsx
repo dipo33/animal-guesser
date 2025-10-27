@@ -12,7 +12,15 @@ import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import React from 'react';
 
-export default function QuestionSection({ progress }: { progress: number }) {
+type QuestionSectionProps = {
+  progress: number;
+  question?: string;
+};
+
+export default function QuestionSection({
+  progress,
+  question,
+}: QuestionSectionProps) {
   return (
     <section className="col-span-12 lg:col-span-6 space-y-6">
       <Card className="rounded-3xl glass shadow-2xl">
@@ -33,7 +41,7 @@ export default function QuestionSection({ progress }: { progress: number }) {
             transition={{ duration: 0.35 }}
             className="text-3xl sm:text-4xl font-semibold tracking-tight text-white/95 text-center py-6"
           >
-            Is it primarily active at night?
+            {question ?? 'Thinking ...'}
           </motion.h1>
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pb-1">
