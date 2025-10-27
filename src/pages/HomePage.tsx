@@ -15,9 +15,6 @@ import { Play, Skull } from 'lucide-react';
 import { Trans, useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-function onStartClassic() {}
-function onStartQuick() {}
-
 export default function HomePage() {
   const { t } = useTranslation();
 
@@ -55,9 +52,8 @@ export default function HomePage() {
                   asChild
                   size="lg"
                   className="rounded-xl px-7 py-6 text-base bg-cyan-400/90 hover:bg-cyan-300/100 text-black shadow-[0_8px_24px_rgba(34,211,238,0.35)] cursor-pointer"
-                  onClick={onStartClassic}
                 >
-                  <Link to="/game">
+                  <Link to="/game/classic">
                     <Play className="mr-2 h-5 w-5" />{' '}
                     {t('button.start_classic')}
                   </Link>
@@ -67,9 +63,8 @@ export default function HomePage() {
                   size="lg"
                   variant="secondary"
                   className="rounded-xl px-7 py-6 text-base bg-white/10 hover:bg-white/20 border border-white/20 text-white/90 cursor-pointer"
-                  onClick={onStartQuick}
                 >
-                  <Link to="/game">
+                  <Link to="/game/expert">
                     <Skull className="mr-2 h-5 w-5" /> {t('button.expert_mode')}
                   </Link>
                 </Button>
