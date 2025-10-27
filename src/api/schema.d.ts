@@ -76,6 +76,9 @@ export interface components {
         };
         /** @enum {string} */
         GameMode: "classic" | "expert";
+        MessageResponse: {
+            message: string;
+        };
         StartGameBody: {
             game_mode: components["schemas"]["GameMode"];
         };
@@ -180,7 +183,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["GameApiResponse"];
+                    "application/json": components["schemas"]["MessageResponse"];
                 };
             };
             /** @description Server failure */
