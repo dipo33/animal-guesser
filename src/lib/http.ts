@@ -20,13 +20,13 @@ export class HttpError extends Error {
   }
 }
 
-const BASE_URL = "http://localhost:3000"
+const BASE_URL = 'http://localhost:3000';
 
 function tryParseJson(text: string): unknown {
   try {
-    return text ? JSON.parse(text) : null
+    return text ? JSON.parse(text) : null;
   } catch {
-    return null
+    return null;
   }
 }
 
@@ -48,7 +48,10 @@ export async function http<T>(
     const parsed = tryParseJson(text);
 
     if (!res.ok) {
-      const body = (parsed && typeof parsed === 'object') ? (parsed as ProblemDetails) : null
+      const body =
+        parsed && typeof parsed === 'object'
+          ? (parsed as ProblemDetails)
+          : null;
       throw new HttpError(res.status, body);
     }
 
