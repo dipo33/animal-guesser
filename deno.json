@@ -1,6 +1,7 @@
 {
   "tasks": {
     "dev": "deno run -A npm:vite",
+    "gen:api": "deno run -A npm:openapi-typescript http://localhost:3000/api-docs/openapi.json -o src/api/schema.d.ts",
     "build": "deno run -A npm:typescript/tsc -b && deno run -A npm:vite build",
     "preview": "deno run -A npm:vite preview",
     "lint": "deno run -A npm:eslint .",
