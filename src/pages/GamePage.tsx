@@ -3,7 +3,7 @@ import GameSidePanel from '@/components/game/GameSidePanel.tsx';
 import QuestionHistory from '@/components/game/QuestionHistory.tsx';
 import GameSection from '@/components/game/QuestionSection.tsx';
 import type { Answer, GameMode, QuestionDto } from '@/model/data.ts';
-import type { Game } from '@/model/game.ts';
+import type { Game, GameState } from '@/model/game.ts';
 import React, { useEffect, useState } from 'react';
 
 type GamePageProps = {
@@ -16,6 +16,7 @@ export default function GamePage({ gameMode }: GamePageProps) {
     question: null,
     round: 1,
     questionHistory: [],
+    state: 'in_progress',
   });
 
   const updateGame = (updates: Array<(g: Game) => Game>) => {
@@ -50,11 +51,20 @@ export default function GamePage({ gameMode }: GamePageProps) {
       round: g.round + 1,
     });
 
+  const setGameState =
+    (state: GameState) =>
+    (g: Game): Game => ({
+      ...g,
+      state: state,
+    });
+
   const getQuestion = async () => {
     const response = await api.getQuestion();
     if (response.data?.type == 'new_question') {
       const question = response.data.question;
       updateGame([setQuestion(question)]);
+    } else if (response.data?.type == 'no_questions_left') {
+      updateGame([setGameState('failed')]);
     }
   };
 
@@ -68,6 +78,7 @@ export default function GamePage({ gameMode }: GamePageProps) {
     if (response.data?.type == 'answered') {
       await getQuestion();
     } else if (response.data?.type == 'animal_guess') {
+      updateGame([setGameState('finished')]);
       setAnimal(response.data.animal);
     }
   };
@@ -75,14 +86,11 @@ export default function GamePage({ gameMode }: GamePageProps) {
   useEffect(() => {
     async function init() {
       await api.start(gameMode);
-      const response = await api.getQuestion();
-      if (response.data?.type == 'new_question') {
-        updateGame([setQuestion(response.data.question)]);
-      }
+      await getQuestion();
     }
 
     void init();
-  });
+  }, []);
 
   return (
     <main className="mx-auto max-w-[1200px] px-6 py-6 grid grid-cols-12 gap-6 my-auto">
@@ -96,6 +104,7 @@ export default function GamePage({ gameMode }: GamePageProps) {
         expectedRounds={
           animal ? game.round : game.round >= 10 ? game.round + 1 : 10
         }
+        gameState={game.state}
       />
       <GameSidePanel />
     </main>

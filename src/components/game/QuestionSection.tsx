@@ -1,9 +1,11 @@
 import AnimalGuessCardContent from '@/components/game/AnimalGuessCardContent.tsx';
+import AnimalGuessFailureCardContent from '@/components/game/AnimalGuessFailureCardContent.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card.tsx';
 import { Input } from '@/components/ui/input.tsx';
 import { Progress } from '@/components/ui/progress.tsx';
 import type { AnimalDto, Answer, QuestionDto } from '@/model/data.ts';
+import type { GameState } from '@/model/game.ts';
 import { Sparkles } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -16,6 +18,7 @@ type QuestionSectionProps = {
   round: number;
   expectedRounds: number;
   onAnswer: (answer: Answer) => void;
+  gameState: GameState;
 };
 
 export default function QuestionSection({
@@ -24,6 +27,7 @@ export default function QuestionSection({
   onAnswer,
   round,
   expectedRounds,
+  gameState,
 }: QuestionSectionProps) {
   const { t } = useTranslation();
   const progress = (round / expectedRounds) * 100;
@@ -45,7 +49,9 @@ export default function QuestionSection({
             className="h-2 bg-white/10 [&>[data-slot=progress-indicator]]:bg-cyan-400/90"
           />
         </CardHeader>
-        {animal ? (
+        {gameState === 'failed' ? (
+          <AnimalGuessFailureCardContent reason="unsure" />
+        ) : animal ? (
           <AnimalGuessCardContent animal={animal} />
         ) : (
           <QuestionCardContent question={question} onAnswer={onAnswer} />

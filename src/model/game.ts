@@ -6,8 +6,11 @@ export type HistoryEntry = {
   answer: Answer;
 };
 
+export type GameState = 'in_progress' | 'finished' | 'failed';
+
 export type Game = {
   question: QuestionDto | null;
   round: number;
   questionHistory: Array<HistoryEntry>;
+  state: GameState;
 };

@@ -11,10 +11,11 @@
   "button.send": "Odoslať",
   "button.dark_mode": "Tmavý režim",
   "button.submit": "Odoslať",
+  "button.try_again": "Skúsiť znova",
 
   "answer.yes": "Áno",
   "answer.no": "Nie",
-  "answer.unsure": "Nie som si istý",
+  "answer.unsure": "Nie som si istý/á",
 
   "placeholder.suggest_question": "Navrhnúť novú otázku…",
 
@@ -44,6 +45,11 @@
   "keyword.contribute": "Prispieť",
 
   "label.improve_me": "Zlepši ma:",
+
+  "fail.simple.title.unknown": "Nepodarilo sa mi to uhádnuť",
+  "fail.simple.subtitle.unknown": "Buď toto zviera ešte nepoznám, alebo niektoré odpovede mu nesedeli",
+  "fail.simple.title.unsure": "Došli mi otázky",
+  "fail.simple.subtitle.unsure": "Pretože bolo príliš veľa odpovedí „nie som si istý/á“, nedokážem to zúžiť na jedno zviera.",
 
   "guess_prompt": "Je tvoje zviera <0>{{name}}</0>?",
   "thinking": "Premýšľam …",

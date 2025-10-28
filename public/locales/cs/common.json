@@ -11,10 +11,11 @@
   "button.send": "Odeslat",
   "button.dark_mode": "Tmavý režim",
   "button.submit": "Odeslat",
+  "button.try_again": "Zkusit znovu",
 
   "answer.yes": "Ano",
   "answer.no": "Ne",
-  "answer.unsure": "Nejsem si jistý",
+  "answer.unsure": "Nejsem si jistý/á",
 
   "placeholder.suggest_question": "Navrhnout novou otázku…",
 
@@ -44,6 +45,11 @@
   "keyword.contribute": "Přispět",
 
   "label.improve_me": "Vylepši mě:",
+
+  "fail.simple.title.unknown": "Nepodařilo se mi to uhodnout",
+  "fail.simple.subtitle.unknown": "Buď tohle zvíře ještě neznám, nebo některé odpovědi mu neodpovídaly",
+  "fail.simple.title.unsure": "Došly mi otázky",
+  "fail.simple.subtitle.unsure": "Protože bylo příliš mnoho odpovědí „nejsem si jistý/á“, nedokážu to zúžit na jedno zvíře.",
 
   "guess_prompt": "Je tvoje zvíře <0>{{name}}</0>?",
   "thinking": "Přemýšlím …",

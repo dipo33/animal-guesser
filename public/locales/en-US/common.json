@@ -11,6 +11,7 @@
   "button.send": "Send",
   "button.dark_mode": "Dark Mode",
   "button.submit": "Submit",
+  "button.try_again": "Try Again",
 
   "answer.yes": "Yes",
   "answer.no": "No",
@@ -44,6 +45,11 @@
   "keyword.contribute": "Contribute",
 
   "label.improve_me": "Improve me:",
+
+  "fail.simple.title.unknown": "I couldn't guess it",
+  "fail.simple.subtitle.unknown": "Either I don’t know this animal yet, or some of the answers didn’t match it",
+  "fail.simple.title.unsure": "I ran out of questions",
+  "fail.simple.subtitle.unsure": "Because there were too many “unsure” answers, I can't narrow it down to one animal.",
 
   "guess_prompt": "Is your animal called <0>{{name}}</0>?",
   "thinking": "Thinking …",
