@@ -13,7 +13,7 @@ export interface paths {
         };
         get?: never;
         put?: never;
-        post: operations["answer"];
+        post: operations["answer_question"];
         delete?: never;
         options?: never;
         head?: never;
@@ -56,6 +56,10 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        AnimalDto: {
+            scientific_name: string;
+            token: components["schemas"]["I18nToken"];
+        };
         /** @enum {string} */
         Answer: "yes" | "no" | "unsure";
         AnswerQuestionBody: {
@@ -65,13 +69,13 @@ export interface components {
             /** @enum {string} */
             type: "answered";
         } | {
-            name: string;
-            scientific_name: string;
+            animal: components["schemas"]["AnimalDto"];
             /** @enum {string} */
             type: "animal_guess";
         };
         /** @enum {string} */
         GameMode: "classic" | "expert";
+        /** @description --------------- Responses --------------- */
         GetQuestionResponse: {
             question: components["schemas"]["QuestionDto"];
             /** @enum {string} */
@@ -79,11 +83,6 @@ export interface components {
         } | {
             /** @enum {string} */
             type: "no_questions_left";
-        } | {
-            name: string;
-            scientific_name: string;
-            /** @enum {string} */
-            type: "animal_guess";
         };
         I18nToken: {
             key: string;
@@ -96,6 +95,7 @@ export interface components {
         QuestionDto: {
             token: components["schemas"]["I18nToken"];
         };
+        /** @description --------------- Input Body --------------- */
         StartGameBody: {
             game_mode: components["schemas"]["GameMode"];
         };
@@ -108,7 +108,7 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
-    answer: {
+    answer_question: {
         parameters: {
             query?: {
                 lang?: string | null;
@@ -219,6 +219,13 @@ export interface operations {
             };
             /** @description Game already running */
             409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Server failure */
+            500: {
                 headers: {
                     [name: string]: unknown;
                 };
