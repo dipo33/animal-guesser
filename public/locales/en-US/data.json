@@ -1,0 +1,53 @@
+{
+  "phylum": "Phylum",
+  "class": "Class",
+  "order": "Order",
+
+  "porifera": "Sponges",
+  "cnidaria": "Cnidarians",
+  "annelida": "Annelids",
+  "nematoda": "Nematodes",
+  "platyhelminthes": "Flatworms",
+  "mollusca": "Mollusks",
+  "arthropoda": "Arthropods",
+  "echinodermata": "Echinoderms",
+  "chordata": "Chordates",
+
+  "agnatha": "Jawless Fishes",
+  "chondrichthyes": "Cartilaginous Fishes",
+  "osteichthyes": "Osteichthyes",
+  "amphibia": "Amphibians",
+  "reptilia": "Reptiles",
+  "aves": "Birds",
+  "mammalia": "Mammals",
+
+  "carnivorans": "Carnivorans",
+  "primates": "Primates",
+  "pilosans": "Pilosa",
+  "artiodactyls": "Artiodactyls",
+  "monotremes": "Monotremes",
+
+  "parrots": "Parrots",
+  "owls": "Owls",
+  "galliformes": "Galliformes",
+
+  "europe": "Europe",
+  "asia": "Asia",
+  "africa": "Africa",
+  "north_america": "North America",
+  "central_america": "Central America",
+  "south_america": "South America",
+  "australia": "Australia",
+  "oceania": "Oceania",
+  "arctic": "Arctic",
+  "antarctica": "Antarctica",
+
+  "dawn": "dawn",
+  "day": "day",
+  "dusk": "dusk",
+  "night": "night",
+
+  "yes": "Yes",
+  "no": "No",
+  "unsure": "I'm not really sure"
+}

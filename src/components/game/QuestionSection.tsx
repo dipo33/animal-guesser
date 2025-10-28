@@ -8,13 +8,15 @@ import {
 } from '@/components/ui/card.tsx';
 import { Input } from '@/components/ui/input.tsx';
 import { Progress } from '@/components/ui/progress.tsx';
+import TToken from '@/i18n/ttoken.tsx';
+import type { QuestionDto } from '@/model/data.ts';
 import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import React from 'react';
 
 type QuestionSectionProps = {
   progress: number;
-  question?: string;
+  question?: QuestionDto;
 };
 
 export default function QuestionSection({
@@ -41,7 +43,7 @@ export default function QuestionSection({
             transition={{ duration: 0.35 }}
             className="text-3xl sm:text-4xl font-semibold tracking-tight text-white/95 text-center py-6"
           >
-            {question ?? 'Thinking ...'}
+            {question ? <TToken token={question.token} /> : 'Thinking ...'}
           </motion.h1>
 
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pb-1">

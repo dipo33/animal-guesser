@@ -61,8 +61,19 @@ export interface components {
         AnswerQuestionBody: {
             answer: components["schemas"]["Answer"];
         };
-        GameApiResponse: {
-            question: string;
+        AnswerQuestionResponse: {
+            /** @enum {string} */
+            type: "answered";
+        } | {
+            name: string;
+            scientific_name: string;
+            /** @enum {string} */
+            type: "animal_guess";
+        };
+        /** @enum {string} */
+        GameMode: "classic" | "expert";
+        GetQuestionResponse: {
+            question: components["schemas"]["QuestionDto"];
             /** @enum {string} */
             type: "new_question";
         } | {
@@ -74,10 +85,16 @@ export interface components {
             /** @enum {string} */
             type: "animal_guess";
         };
-        /** @enum {string} */
-        GameMode: "classic" | "expert";
+        I18nToken: {
+            key: string;
+            ns?: string | null;
+            values?: unknown;
+        };
         MessageResponse: {
             message: string;
+        };
+        QuestionDto: {
+            token: components["schemas"]["I18nToken"];
         };
         StartGameBody: {
             game_mode: components["schemas"]["GameMode"];
@@ -115,8 +132,15 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["GameApiResponse"];
+                    "application/json": components["schemas"]["AnswerQuestionResponse"];
                 };
+            };
+            /** @description No active game or no question to answer */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description Server failure */
             500: {
@@ -147,8 +171,15 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["GameApiResponse"];
+                    "application/json": components["schemas"]["GetQuestionResponse"];
                 };
+            };
+            /** @description No active game */
+            409: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
             /** @description Server failure */
             500: {
@@ -186,8 +217,8 @@ export interface operations {
                     "application/json": components["schemas"]["MessageResponse"];
                 };
             };
-            /** @description Server failure */
-            500: {
+            /** @description Game already running */
+            409: {
                 headers: {
                     [name: string]: unknown;
                 };

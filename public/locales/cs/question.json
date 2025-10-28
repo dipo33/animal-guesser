@@ -1,0 +1,9 @@
+{
+  "belongs_to_phylum": "Je z kmene {{phylum}}?",
+  "belongs_to_class": "Je z třídy {{class}}?",
+  "belongs_to_order": "Je z řádu {{order}}?",
+  "is_domestic": "Je to domácí zvíře?",
+  "can_kill_human": "Dokáže zabít dospělého člověka, pokud je vyprovokováno?",
+  "lives_in_continent": "Žije v {{continent}}?",
+  "is_active_during": "Je aktivní během {{time_period}}?"
+}

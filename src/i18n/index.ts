@@ -1,7 +1,8 @@
+import type { I18nToken } from '@/model/data.ts';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
-import { initReactI18next } from 'react-i18next';
+import { initReactI18next, useTranslation } from 'react-i18next';
 
 void i18n
   .use(Backend)
@@ -10,7 +11,7 @@ void i18n
   .init({
     fallbackLng: 'en-US',
     supportedLngs: ['en-US', 'cs', 'sk'],
-    ns: ['common'],
+    ns: ['common', 'data', 'question'],
     defaultNS: 'common',
     interpolation: { escapeValue: false },
     backend: {
@@ -28,5 +29,34 @@ void i18n
       useSuspense: true,
     },
   });
+
+export function useI18nToken(token: I18nToken): string {
+  const { t, i18n } = useTranslation();
+  const tForNs =
+    (ns?: string) => (key: string, values?: Record<string, string>) =>
+      ns ? i18n.t(`${ns}:${key}`, values) : t(key, values);
+
+  const values = resolveValues(token.values || {}, tForNs);
+  return tForNs(token.ns)(token.key, values);
+}
+
+function resolveValues(
+  values: Record<string, unknown>,
+  tForNs: (ns?: string) => (k: string, v: Record<string, string>) => string,
+): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const [key, value] of Object.entries(values || {})) {
+    if (value && typeof value === 'object') {
+      const token = value as I18nToken;
+      out[key] = tForNs(token.ns)(
+        token.key,
+        resolveValues(token.values || {}, tForNs),
+      );
+    } else {
+      out[key] = value;
+    }
+  }
+  return out;
+}
 
 export default i18n;

@@ -1,0 +1,53 @@
+{
+  "phylum": "Kmeň",
+  "class": "Trieda",
+  "order": "Rád",
+
+  "porifera": "Hubky",
+  "cnidaria": "Pŕhlivce",
+  "annelida": "Obrúčkavce",
+  "nematoda": "Hlístovce",
+  "platyhelminthes": "Ploskavce",
+  "mollusca": "Mäkkýše",
+  "arthropoda": "Článkonožce",
+  "echinodermata": "Ostnatokožce",
+  "chordata": "Chordáty",
+
+  "agnatha": "Bezčeľustnatce",
+  "chondrichthyes": "Drsnokožce",
+  "osteichthyes": "Ryby",
+  "amphibia": "Obojživelníky",
+  "reptilia": "Plazy",
+  "aves": "Vtáky",
+  "mammalia": "Cicavce",
+
+  "carnivorans": "Šelmy",
+  "primates": "Primáty",
+  "pilosans": "Pilosa",
+  "artiodactyls": "Párnokopytníky",
+  "monotremes": "Kloakovce",
+
+  "parrots": "Papagájotvaré",
+  "owls": "Sovotvaré",
+  "galliformes": "Kurotvaré",
+
+  "europe": "{{case, select, loc{Európe} nom{Európa} other{Európa}}}",
+  "asia": "{{case, select, loc{Ázii} nom{Ázia} other{Ázia}}}",
+  "africa": "{{case, select, loc{Afrike} nom{Afrika} other{Afrika}}}",
+  "north_america": "{{case, select, loc{Severnej Amerike} nom{Severná Amerika} other{Severná Amerika}}}",
+  "central_america": "{{case, select, loc{Strednej Amerike} nom{Stredná Amerika} other{Stredná Amerika}}}",
+  "south_america": "{{case, select, loc{Južnej Amerike} nom{Južná Amerika} other{Južná Amerika}}}",
+  "australia": "{{case, select, loc{Austrálii} nom{Austrália} other{Austrália}}}",
+  "oceania": "{{case, select, loc{Oceánii} nom{Oceánia} other{Oceánia}}}",
+  "arctic": "{{case, select, loc{Arktíde} nom{Arktída} other{Arktída}}}",
+  "antarctica": "{{case, select, loc{Antarktíde} nom{Antarktída} other{Antarktída}}}",
+
+  "dawn": "{{case, select, gen{úsvitu} nom{úsvit} other{úsvit}}}",
+  "day": "{{case, select, gen{dňa} nom{deň} other{deň}}}",
+  "dusk": "{{case, select, gen{súmraku} nom{Súmrak} other{Súmrak}}}",
+  "night": "{{case, select, gen{noci} nom{noc} other{noc}}}",
+
+  "yes": "Áno",
+  "no": "Nie",
+  "unsure": "Neviem"
+}
