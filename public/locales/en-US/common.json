@@ -44,6 +44,9 @@
 
   "label.improve_me": "Improve me:",
 
+  "guess_prompt": "Is your animal called <0>{{name}}</0>?",
+  "thinking": "Thinking …",
+  "is_your_animal": "Is your animal …",
   "question_history": "Question History",
   "current_guess": "Current Guess",
   "round": "Round {round}",

@@ -44,6 +44,9 @@
 
   "label.improve_me": "Vylepši mě:",
 
+  "guess_prompt": "Je tvoje zvíře <0>{{name}}</0>?",
+  "thinking": "Přemýšlím …",
+  "is_your_animal": "Je tvoje zvíře …",
   "question_history": "Historie otázek",
   "current_guess": "Aktuální odhad",
   "round": "Kolo {round}",

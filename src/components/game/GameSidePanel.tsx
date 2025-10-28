@@ -8,7 +8,7 @@ export default function GameSidePanel() {
 
   return (
     <aside className="hidden lg:block col-span-3 glass rounded-2xl p-4 space-y-4">
-      <div className="text-white/90 font-medium">{t("current_guess")}</div>
+      <div className="text-white/90 font-medium">{t('current_guess')}</div>
       <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
         <div className="text-2xl font-semibold">🦝 Raccoon</div>
         <div className="text-xs text-white/70 mt-1">

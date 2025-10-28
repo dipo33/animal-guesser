@@ -13,7 +13,7 @@ void i18n
   .init({
     fallbackLng: 'en-US',
     supportedLngs: ['en-US', 'cs', 'sk'],
-    ns: ['common', 'data', 'question'],
+    ns: ['common', 'data', 'question', 'animal'],
     defaultNS: 'common',
     interpolation: { escapeValue: false },
     backend: {

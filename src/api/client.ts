@@ -1,4 +1,4 @@
-import type { GameMode } from '@/model/data.ts';
+import type { Answer, GameMode } from '@/model/data.ts';
 import i18n from 'i18next';
 import createClient from 'openapi-fetch';
 import type { paths } from './schema';
@@ -31,6 +31,18 @@ export const api = {
         query: {
           lang: i18n.language,
         },
+      },
+    });
+  },
+  answerQuestion: (answer: Answer) => {
+    return api_raw.POST('/answer', {
+      params: {
+        query: {
+          lang: i18n.language,
+        },
+      },
+      body: {
+        answer: answer,
       },
     });
   },

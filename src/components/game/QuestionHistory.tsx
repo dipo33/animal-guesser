@@ -17,7 +17,7 @@ export default function QuestionHistory() {
     <aside className="hidden lg:block col-span-3 glass rounded-2xl p-4">
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center gap-2 text-white/90">
-          <History className="h-4 w-4" /> {t("question_history")}
+          <History className="h-4 w-4" /> {t('question_history')}
         </div>
         <Badge variant="outline" className="border-white/15 text-white/70">
           {history.length}
