@@ -31,19 +31,19 @@
   "owls": "Sovy",
   "galliformes": "Hrabaví",
 
-  "europe": "{{case, select, loc{Evropě} nom{Evropa} other{Evropa}}}",
-  "asia": "{{case, select, loc{Asii} nom{Asie} other{Asie}}}",
-  "africa": "{{case, select, loc{Africe} nom{Afrika} other{Afrika}}}",
-  "north_america": "{{case, select, loc{Severní Americe} nom{Severní Amerika} other{Severní Amerika}}}",
-  "central_america": "{{case, select, loc{Střední Americe} nom{Střední Amerika} other{Střední Amerika}}}",
-  "south_america": "{{case, select, loc{Jižní Americe} nom{Jižní Amerika} other{Jižní Amerika}}}",
-  "australia": "{{case, select, loc{Austrálii} nom{Austrálie} other{Austrálie}}}",
-  "oceania": "{{case, select, loc{Oceánii} nom{Oceánie} other{Oceánie}}}",
-  "arctic": "{{case, select, loc{Arktidě} nom{Arktida} other{Arktida}}}",
-  "antarctica": "{{case, select, loc{Antarktidě} nom{Antarktida} other{Antarktida}}}",
+  "europe": "{case, select, loc{Evropě} nom{Evropa} other{Evropa}}",
+  "asia": "{case, select, loc{Asii} nom{Asie} other{Asie}}",
+  "africa": "{case, select, loc{Africe} nom{Afrika} other{Afrika}}",
+  "north_america": "{case, select, loc{Severní Americe} nom{Severní Amerika} other{Severní Amerika}}",
+  "central_america": "{case, select, loc{Střední Americe} nom{Střední Amerika} other{Střední Amerika}}",
+  "south_america": "{case, select, loc{Jižní Americe} nom{Jižní Amerika} other{Jižní Amerika}}",
+  "australia": "{case, select, loc{Austrálii} nom{Austrálie} other{Austrálie}}",
+  "oceania": "{case, select, loc{Oceánii} nom{Oceánie} other{Oceánie}}",
+  "arctic": "{case, select, loc{Arktidě} nom{Arktida} other{Arktida}}",
+  "antarctica": "{case, select, loc{Antarktidě} nom{Antarktida} other{Antarktida}}",
 
-  "dawn": "{{case, select, gen{úsvitu} nom{úsvit} other{úsvit}}}",
-  "day": "{{case, select, gen{dne} nom{den} other{den}}}",
-  "dusk": "{{case, select, gen{soumraku} nom{soumrak} other{soumrak}}}",
-  "night": "{{case, select, gen{noci} nom{noc} other{noc}}}"
+  "dawn": "{case, select, gen{úsvitu} nom{úsvit} other{úsvit}}",
+  "day": "{case, select, gen{dne} nom{den} other{den}}",
+  "dusk": "{case, select, gen{soumraku} nom{soumrak} other{soumrak}}",
+  "night": "{case, select, gen{noci} nom{noc} other{noc}}"
 }

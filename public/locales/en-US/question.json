@@ -1,9 +1,9 @@
 {
-  "belongs_to_phylum": "Does it belong to the phylum {{phylum}}?",
-  "belongs_to_class": "Does it belong to the class {{class}}?",
-  "belongs_to_order": "Does it belong to the order {{order}}?",
+  "belongs_to_phylum": "Does it belong to the phylum {phylum}?",
+  "belongs_to_class": "Does it belong to the class {class}?",
+  "belongs_to_order": "Does it belong to the order {order}?",
   "is_domestic": "Is it a domestic animal?",
   "can_kill_human": "Is it capable of killing an adult human if provoked?",
-  "lives_in_continent": "Does it live in {{continent}}?",
-  "is_active_during": "Is it active during the {{time_period}}?"
+  "lives_in_continent": "Does it live in {continent}?",
+  "is_active_during": "Is it active during the {time_period}?"
 }
