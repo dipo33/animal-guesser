@@ -10,10 +10,11 @@
   "button.discard": "Zahodit",
   "button.send": "Odeslat",
   "button.dark_mode": "Tmavý režim",
-  "button.yes": "Ano",
-  "button.no": "Ne",
-  "button.unsure": "Nejsem si jistý",
   "button.submit": "Odeslat",
+
+  "answer.yes": "Ano",
+  "answer.no": "Ne",
+  "answer.unsure": "Nejsem si jistý",
 
   "placeholder.suggest_question": "Navrhnout novou otázku…",
 

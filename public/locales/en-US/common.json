@@ -10,10 +10,11 @@
   "button.discard": "Discard",
   "button.send": "Send",
   "button.dark_mode": "Dark Mode",
-  "button.yes": "Yes",
-  "button.no": "No",
-  "button.unsure": "Not sure",
   "button.submit": "Submit",
+
+  "answer.yes": "Yes",
+  "answer.no": "No",
+  "answer.unsure": "Not sure",
 
   "placeholder.suggest_question": "Suggest a new question…",
 

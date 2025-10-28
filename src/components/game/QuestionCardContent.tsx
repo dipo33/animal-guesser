@@ -35,7 +35,7 @@ export default function QuestionCardContent({
           className="rounded-xl px-8 py-6 text-base bg-cyan-400/90 hover:bg-cyan-300/100 text-black shadow-[0_8px_24px_rgba(34,211,238,0.35)]"
           onClick={() => onAnswer('yes')}
         >
-          {t('button.yes')}
+          {t('answer.yes')}
         </Button>
         <Button
           size="lg"
@@ -43,7 +43,7 @@ export default function QuestionCardContent({
           className="rounded-xl px-8 py-6 text-base bg-rose-500/80 hover:bg-rose-500/100 border border-white/20 text-white/90"
           onClick={() => onAnswer('no')}
         >
-          {t('button.no')}
+          {t('answer.no')}
         </Button>
         <Button
           size="lg"
@@ -51,7 +51,7 @@ export default function QuestionCardContent({
           className="rounded-xl px-8 py-6 text-base bg-white/10 hover:bg-white/20 border border-white/20 text-white/90"
           onClick={() => onAnswer('unsure')}
         >
-          {t('button.unsure')}
+          {t('answer.unsure')}
         </Button>
       </div>
 

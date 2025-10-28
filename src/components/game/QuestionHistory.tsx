@@ -55,19 +55,6 @@ export default function QuestionHistory({ history }: QuestionHistoryProps) {
             ))}
           </AnimatePresence>
         </motion.div>
-        {/*{history.map(([question, answer], i) => (*/}
-        {/*  <div*/}
-        {/*    key={i}*/}
-        {/*    className="rounded-xl border border-white/10 bg-white/[0.03] p-3"*/}
-        {/*  >*/}
-        {/*    <div className="text-sm text-white/85">*/}
-        {/*      <TToken token={question.token} />*/}
-        {/*    </div>*/}
-        {/*    <div className="mt-2">*/}
-        {/*      <AnswerBadge answer={answer} />*/}
-        {/*    </div>*/}
-        {/*  </div>*/}
-        {/*))}*/}
       </div>
     </aside>
   );
@@ -78,12 +65,14 @@ type AnswerBadgeProps = {
 };
 
 function AnswerBadge({ answer }: AnswerBadgeProps) {
-  const variants = {
-    yes: { class: 'bg-emerald-500/80', label: 'Yes' },
-    no: { class: 'bg-rose-500/80', label: 'No' },
-    unsure: { class: 'bg-white/15', label: 'Not sure' },
-  } as const;
-  const { class: bgClass, label } = variants[answer];
+  const { t } = useTranslation();
 
-  return <Badge className={`${bgClass} border-0`}>{label}</Badge>;
+  const variants = {
+    yes: { class: 'bg-emerald-500/80', key: 'answer.yes' },
+    no: { class: 'bg-rose-500/80', key: 'answer.no' },
+    unsure: { class: 'bg-white/15', key: 'answer.unsure' },
+  } as const;
+  const { class: bgClass, key } = variants[answer];
+
+  return <Badge className={`${bgClass} border-0`}>{t(key)}</Badge>;
 }
