@@ -18,40 +18,53 @@ export default function GamePage({ gameMode }: GamePageProps) {
     questionHistory: [],
   });
 
-  const setQuestion = (question?: QuestionDto) => {
-    setGame((g) => ({
-      ...g,
-      question: question,
-    }));
+  const updateGame = (updates: Array<(g: Game) => Game>) => {
+    setGame((g) => updates.reduce((acc, fn) => fn(acc), g));
   };
 
-  const addQuestionToHistory = (question: QuestionDto, answer: Answer) => {
-    setGame((g) => {
-      return {
-        ...g,
-        questionHistory: [
-          {
-            question: question,
-            answer: answer,
-            id: crypto.randomUUID(),
-          },
-          ...g.questionHistory,
-        ],
-      };
+  const setQuestion =
+    (question?: QuestionDto) =>
+    (g: Game): Game => ({
+      ...g,
+      question,
     });
-  };
+
+  const addQuestionToHistory =
+    (question: QuestionDto, answer: Answer) =>
+    (g: Game): Game => ({
+      ...g,
+      questionHistory: [
+        {
+          id: crypto.randomUUID(),
+          question: question,
+          answer: answer,
+        },
+        ...g.questionHistory,
+      ],
+    });
+
+  const incrementRound =
+    () =>
+    (g: Game): Game => ({
+      ...g,
+      round: g.round + 1,
+    });
 
   const getQuestion = async () => {
     const response = await api.getQuestion();
     if (response.data?.type == 'new_question') {
       const question = response.data.question;
-      setQuestion(question);
+      updateGame([setQuestion(question)]);
     }
   };
 
   const answerQuestion = async (answer: Answer) => {
     const response = await api.answerQuestion(answer);
-    addQuestionToHistory(game.question!, answer);
+    updateGame([
+      addQuestionToHistory(game.question!, answer),
+      incrementRound(),
+    ]);
+
     if (response.data?.type == 'answered') {
       await getQuestion();
     } else if (response.data?.type == 'animal_guess') {
@@ -64,7 +77,7 @@ export default function GamePage({ gameMode }: GamePageProps) {
       await api.start(gameMode);
       const response = await api.getQuestion();
       if (response.data?.type == 'new_question') {
-        setQuestion(response.data.question);
+        updateGame([setQuestion(response.data.question)]);
       }
     }
 
@@ -79,6 +92,10 @@ export default function GamePage({ gameMode }: GamePageProps) {
         question={game.question}
         animal={animal}
         onAnswer={answerQuestion}
+        round={game.round}
+        expectedRounds={
+          animal ? game.round : game.round >= 10 ? game.round + 1 : 10
+        }
       />
       <GameSidePanel />
     </main>

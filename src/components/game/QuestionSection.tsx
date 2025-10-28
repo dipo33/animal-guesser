@@ -13,16 +13,20 @@ type QuestionSectionProps = {
   progress: number;
   question?: QuestionDto;
   animal?: AnimalDto;
+  round: number;
+  expectedRounds: number;
   onAnswer: (answer: Answer) => void;
 };
 
 export default function QuestionSection({
-  progress,
   question,
   animal,
   onAnswer,
+  round,
+  expectedRounds,
 }: QuestionSectionProps) {
   const { t } = useTranslation();
+  const progress = (round / expectedRounds) * 100;
 
   return (
     <section className="col-span-12 lg:col-span-6 space-y-6">
@@ -30,10 +34,10 @@ export default function QuestionSection({
         <CardHeader className="pb-2">
           <div className="flex items-center justify-between">
             <CardTitle className="text-white/90">
-              {t('round', { round: 1 })}
+              {t('round', { round: round })}
             </CardTitle>
             <div className="text-xs text-white/60">
-              {t('expected_rounds', { count: 20 })}
+              {t('expected_rounds', { count: expectedRounds })}
             </div>
           </div>
           <Progress
