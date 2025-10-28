@@ -10,8 +10,12 @@
   "button.discard": "Discard",
   "button.send": "Send",
   "button.dark_mode": "Dark Mode",
+  "button.yes": "Yes",
+  "button.no": "No",
+  "button.unsure": "Not sure",
+  "button.submit": "Submit",
 
-  "placeholder.suggest_question": "Suggest a question…",
+  "placeholder.suggest_question": "Suggest a new question…",
 
   "features.no_login": "No login needed",
   "features.multilingual": "Multilingual",
@@ -38,6 +42,14 @@
   "keyword.language": "Language",
   "keyword.contribute": "Contribute",
 
+  "label.improve_me": "Improve me:",
+
+  "question_history": "Question History",
+  "current_guess": "Current Guess",
+  "round": "Round {{round}}",
+  "expected_rounds": "~ {{count}} questions",
+  "traits_left": "Traits left: {{count}}",
+  "confidence": "Confidence: {{level}}%",
   "contribute.desc": "Suggest new questions or animals to improve the model.",
   "continue_where_left": "Continue where you left",
   "resume_session": "Resume your last session instantly.",

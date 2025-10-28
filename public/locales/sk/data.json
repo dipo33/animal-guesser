@@ -45,9 +45,5 @@
   "dawn": "{{case, select, gen{úsvitu} nom{úsvit} other{úsvit}}}",
   "day": "{{case, select, gen{dňa} nom{deň} other{deň}}}",
   "dusk": "{{case, select, gen{súmraku} nom{Súmrak} other{Súmrak}}}",
-  "night": "{{case, select, gen{noci} nom{noc} other{noc}}}",
-
-  "yes": "Áno",
-  "no": "Nie",
-  "unsure": "Neviem"
+  "night": "{{case, select, gen{noci} nom{noc} other{noc}}}"
 }

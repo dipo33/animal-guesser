@@ -45,9 +45,5 @@
   "dawn": "dawn",
   "day": "day",
   "dusk": "dusk",
-  "night": "night",
-
-  "yes": "Yes",
-  "no": "No",
-  "unsure": "I'm not really sure"
+  "night": "night"
 }

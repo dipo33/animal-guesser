@@ -10,8 +10,12 @@
   "button.discard": "Zahodiť",
   "button.send": "Odoslať",
   "button.dark_mode": "Tmavý režim",
+  "button.yes": "Áno",
+  "button.no": "Nie",
+  "button.unsure": "Nie som si istý",
+  "button.submit": "Odoslať",
 
-  "placeholder.suggest_question": "Navrhnúť otázku…",
+  "placeholder.suggest_question": "Navrhnúť novú otázku…",
 
   "features.no_login": "Bez registrácie",
   "features.multilingual": "Viacjazyčné",
@@ -38,6 +42,14 @@
   "keyword.language": "Jazyk",
   "keyword.contribute": "Prispieť",
 
+  "label.improve_me": "Zlepši ma:",
+
+  "question_history": "História otázok",
+  "current_guess": "Aktuálny odhad",
+  "round": "Kolo {{round}}",
+  "expected_rounds": "~ {{count}} otázok",
+  "traits_left": "Zostávajúce vlastnosti: {{count}}",
+  "confidence": "Istota: {{level}}%",
   "contribute.desc": "Navrhni nové otázky alebo zvieratá a pomôž vylepšiť model.",
   "continue_where_left": "Pokračovať tam, kde si skončil",
   "resume_session": "Pokračuj v poslednej hre.",
