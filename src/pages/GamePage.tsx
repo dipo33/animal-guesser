@@ -4,7 +4,7 @@ import GameSidePanel from '@/components/game/GameSidePanel.tsx';
 import QuestionHistory from '@/components/game/QuestionHistory.tsx';
 import GameSection from '@/components/game/QuestionSection.tsx';
 import type { Answer, GameMode, QuestionDto } from '@/model/data.ts';
-import type { Game, GameState } from '@/model/game.ts';
+import { defaultGame, type Game, type GameState } from '@/model/game.ts';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,12 +17,7 @@ export default function GamePage({ gameMode }: GamePageProps) {
 
   const [showDialog, setShowDialog] = React.useState(false);
   const [animal, setAnimal] = useState(null);
-  const [game, setGame] = useState<Game>({
-    question: null,
-    round: 1,
-    questionHistory: [],
-    state: 'in_progress',
-  });
+  const [game, setGame] = useState<Game>(() => defaultGame());
 
   const updateGame = (updates: Array<(g: Game) => Game>) => {
     setGame((g) => updates.reduce((acc, fn) => fn(acc), g));
@@ -91,6 +86,7 @@ export default function GamePage({ gameMode }: GamePageProps) {
   const startGame = async (force: boolean) => {
     const startResponse = await api.start(gameMode, force);
     if (startResponse.data?.type === 'new_game_started') {
+      setGame(defaultGame());
       await getQuestion();
     } else if (startResponse.data?.type === 'game_already_exists') {
       setShowDialog(true);

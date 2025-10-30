@@ -14,3 +14,12 @@ export type Game = {
   questionHistory: Array<HistoryEntry>;
   state: GameState;
 };
+
+export function defaultGame() {
+  return {
+    question: null,
+    round: 1,
+    questionHistory: [],
+    state: 'in_progress',
+  };
+}
