@@ -93,6 +93,7 @@ export interface components {
         };
         /** @description --------------- Input Body --------------- */
         StartGameBody: {
+            force: boolean;
             game_mode: components["schemas"]["GameMode"];
         };
         /** @description --------------- Responses --------------- */

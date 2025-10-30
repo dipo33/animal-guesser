@@ -88,17 +88,17 @@ export default function GamePage({ gameMode }: GamePageProps) {
     }
   };
 
-  useEffect(() => {
-    async function init() {
-      const startResponse = await api.start(gameMode);
-      if (startResponse.data?.type === 'new_game_started') {
-        await getQuestion();
-      } else if (startResponse.data?.type === 'game_already_exists') {
-        setShowDialog(true);
-      }
+  const startGame = async (force: boolean) => {
+    const startResponse = await api.start(gameMode, force);
+    if (startResponse.data?.type === 'new_game_started') {
+      await getQuestion();
+    } else if (startResponse.data?.type === 'game_already_exists') {
+      setShowDialog(true);
     }
+  };
 
-    void init();
+  useEffect(() => {
+    void startGame(false);
   }, []);
 
   return (
@@ -126,6 +126,7 @@ export default function GamePage({ gameMode }: GamePageProps) {
         }}
         onOverwrite={() => {
           setShowDialog(false);
+          void startGame(true);
         }}
       />
     </main>

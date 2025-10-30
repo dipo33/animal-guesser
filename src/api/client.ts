@@ -13,7 +13,7 @@ const api_raw = createClient<paths>({
 });
 
 export const api = {
-  start: (gameMode: GameMode) => {
+  start: (gameMode: GameMode, force: boolean) => {
     return api_raw.POST('/start', {
       params: {
         query: {
@@ -22,6 +22,7 @@ export const api = {
       },
       body: {
         game_mode: gameMode,
+        force: force,
       },
     });
   },
