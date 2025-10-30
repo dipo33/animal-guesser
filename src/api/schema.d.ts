@@ -75,7 +75,6 @@ export interface components {
         };
         /** @enum {string} */
         GameMode: "classic" | "expert";
-        /** @description --------------- Responses --------------- */
         GetQuestionResponse: {
             question: components["schemas"]["QuestionDto"];
             /** @enum {string} */
@@ -89,15 +88,20 @@ export interface components {
             ns?: string | null;
             values?: unknown;
         };
-        MessageResponse: {
-            message: string;
-        };
         QuestionDto: {
             token: components["schemas"]["I18nToken"];
         };
         /** @description --------------- Input Body --------------- */
         StartGameBody: {
             game_mode: components["schemas"]["GameMode"];
+        };
+        /** @description --------------- Responses --------------- */
+        StartGameResponse: {
+            /** @enum {string} */
+            type: "new_game_started";
+        } | {
+            /** @enum {string} */
+            type: "game_already_exists";
         };
     };
     responses: never;
@@ -214,7 +218,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["MessageResponse"];
+                    "application/json": components["schemas"]["StartGameResponse"];
                 };
             };
             /** @description Game already running */

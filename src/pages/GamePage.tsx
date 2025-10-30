@@ -1,16 +1,21 @@
 import { api } from '@/api/client.ts';
+import GameExistsDialog from '@/components/game/GameExistsDialog.tsx';
 import GameSidePanel from '@/components/game/GameSidePanel.tsx';
 import QuestionHistory from '@/components/game/QuestionHistory.tsx';
 import GameSection from '@/components/game/QuestionSection.tsx';
 import type { Answer, GameMode, QuestionDto } from '@/model/data.ts';
 import type { Game, GameState } from '@/model/game.ts';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type GamePageProps = {
   gameMode: GameMode;
 };
 
 export default function GamePage({ gameMode }: GamePageProps) {
+  const navigate = useNavigate();
+
+  const [showDialog, setShowDialog] = React.useState(false);
   const [animal, setAnimal] = useState(null);
   const [game, setGame] = useState<Game>({
     question: null,
@@ -85,8 +90,12 @@ export default function GamePage({ gameMode }: GamePageProps) {
 
   useEffect(() => {
     async function init() {
-      await api.start(gameMode);
-      await getQuestion();
+      const startResponse = await api.start(gameMode);
+      if (startResponse.data?.type === 'new_game_started') {
+        await getQuestion();
+      } else if (startResponse.data?.type === 'game_already_exists') {
+        setShowDialog(true);
+      }
     }
 
     void init();
@@ -107,6 +116,18 @@ export default function GamePage({ gameMode }: GamePageProps) {
         gameState={game.state}
       />
       <GameSidePanel />
+      <GameExistsDialog
+        open={showDialog}
+        onClosed={() => {
+          void navigate('/');
+        }}
+        onContinue={() => {
+          setShowDialog(false);
+        }}
+        onOverwrite={() => {
+          setShowDialog(false);
+        }}
+      />
     </main>
   );
 }
