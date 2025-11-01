@@ -1,4 +1,5 @@
 import type { Answer, QuestionDto } from '@/model/data.ts';
+import type React from 'react';
 
 export type HistoryEntry = {
   id: string;
@@ -15,7 +16,7 @@ export type Game = {
   state: GameState;
 };
 
-export function defaultGame() {
+export function defaultGame(): Game {
   return {
     question: null,
     round: 1,
@@ -23,3 +24,45 @@ export function defaultGame() {
     state: 'in_progress',
   };
 }
+
+export const updateGame = (
+  setGame: React.Dispatch<React.SetStateAction<Game>>,
+  updates: Array<(g: Game) => Game>,
+) => {
+  setGame((g) => updates.reduce((acc, fn) => fn(acc), g));
+};
+
+export const setQuestion =
+  (question?: QuestionDto) =>
+  (g: Game): Game => ({
+    ...g,
+    question,
+  });
+
+export const addQuestionToHistory =
+  (question: QuestionDto, answer: Answer) =>
+  (g: Game): Game => ({
+    ...g,
+    questionHistory: [
+      {
+        id: crypto.randomUUID(),
+        question: question,
+        answer: answer,
+      },
+      ...g.questionHistory,
+    ],
+  });
+
+export const incrementRound =
+  () =>
+  (g: Game): Game => ({
+    ...g,
+    round: g.round + 1,
+  });
+
+export const setGameState =
+  (state: GameState) =>
+  (g: Game): Game => ({
+    ...g,
+    state: state,
+  });

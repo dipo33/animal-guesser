@@ -3,9 +3,17 @@ import GameExistsDialog from '@/components/game/GameExistsDialog.tsx';
 import GameSidePanel from '@/components/game/GameSidePanel.tsx';
 import QuestionHistory from '@/components/game/QuestionHistory.tsx';
 import GameSection from '@/components/game/QuestionSection.tsx';
-import type { Answer, GameMode, QuestionDto } from '@/model/data.ts';
-import { defaultGame, type Game, type GameState } from '@/model/game.ts';
-import React, { useEffect, useState } from 'react';
+import type { AnimalDto, Answer, GameMode } from '@/model/data.ts';
+import {
+  addQuestionToHistory,
+  defaultGame,
+  incrementRound,
+  setGameState,
+  setQuestion,
+  updateGame,
+  type Game,
+} from '@/model/game.ts';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 type GamePageProps = {
@@ -16,106 +24,70 @@ export default function GamePage({ gameMode }: GamePageProps) {
   const navigate = useNavigate();
 
   const [showDialog, setShowDialog] = React.useState(false);
-  const [animal, setAnimal] = useState(null);
+  const [animal, setAnimal] = useState<AnimalDto | null>(null);
   const [game, setGame] = useState<Game>(() => defaultGame());
-
-  const updateGame = (updates: Array<(g: Game) => Game>) => {
-    setGame((g) => updates.reduce((acc, fn) => fn(acc), g));
-  };
-
-  const setQuestion =
-    (question?: QuestionDto) =>
-    (g: Game): Game => ({
-      ...g,
-      question,
-    });
-
-  const addQuestionToHistory =
-    (question: QuestionDto, answer: Answer) =>
-    (g: Game): Game => ({
-      ...g,
-      questionHistory: [
-        {
-          id: crypto.randomUUID(),
-          question: question,
-          answer: answer,
-        },
-        ...g.questionHistory,
-      ],
-    });
-
-  const incrementRound =
-    () =>
-    (g: Game): Game => ({
-      ...g,
-      round: g.round + 1,
-    });
-
-  const setGameState =
-    (state: GameState) =>
-    (g: Game): Game => ({
-      ...g,
-      state: state,
-    });
 
   const getQuestion = async () => {
     const response = await api.getQuestion();
     if (response.data?.type == 'new_question') {
       const question = response.data.question;
-      updateGame([setQuestion(question)]);
+      updateGame(setGame, [setQuestion(question)]);
     } else if (response.data?.type == 'no_questions_left') {
-      updateGame([setGameState('failed')]);
+      updateGame(setGame, [setGameState('failed')]);
     }
   };
 
   const answerQuestion = async (answer: Answer) => {
     const response = await api.answerQuestion(answer);
-    updateGame([
-      addQuestionToHistory(game.question!, answer),
+    updateGame(setGame, [
+      addQuestionToHistory(game.question, answer),
       incrementRound(),
     ]);
 
     if (response.data?.type == 'answered') {
       await getQuestion();
     } else if (response.data?.type == 'animal_guess') {
-      updateGame([setGameState('finished')]);
+      updateGame(setGame, [setGameState('finished')]);
       setAnimal(response.data.animal);
     }
   };
 
-  const startGame = async (force: boolean) => {
-    const startResponse = await api.start(gameMode, force);
-    if (startResponse.data?.type === 'new_game_started') {
-      setGame(defaultGame());
-      setAnimal(null);
-      await getQuestion();
-    } else if (startResponse.data?.type === 'game_already_exists') {
-      setAnimal(startResponse.data.game.animal);
-      setGame({
-        ...startResponse.data.game.question,
-        question: startResponse.data.game.question,
-        round: startResponse.data.game.round,
-        state: startResponse.data.game.state,
-        questionHistory: startResponse.data.game.question_history.map(
-          (entry) => ({
-            question: entry.question,
-            answer: entry.answer,
-            id: crypto.randomUUID(),
-          }),
-        ),
-      });
-
-      if (game.question == null) {
+  const startGame = useCallback(
+    async (force: boolean) => {
+      const startResponse = await api.start(gameMode, force);
+      if (startResponse.data?.type === 'new_game_started') {
+        setGame(defaultGame());
+        setAnimal(null);
         await getQuestion();
-      }
+      } else if (startResponse.data?.type === 'game_already_exists') {
+        setAnimal(startResponse.data.game.animal);
+        setGame({
+          ...startResponse.data.game.question,
+          question: startResponse.data.game.question,
+          round: startResponse.data.game.round,
+          state: startResponse.data.game.state,
+          questionHistory: startResponse.data.game.question_history.map(
+            (entry) => ({
+              question: entry.question,
+              answer: entry.answer,
+              id: crypto.randomUUID(),
+            }),
+          ),
+        });
 
-      setShowDialog(true);
-    }
-  };
+        if (startResponse.data.game.question == null) {
+          await getQuestion();
+        }
+
+        setShowDialog(true);
+      }
+    },
+    [gameMode],
+  );
 
   useEffect(() => {
     void startGame(false);
-  }, []);
+  }, [startGame]);
 
   return (
     <main className="mx-auto max-w-[1200px] px-6 py-6 grid grid-cols-12 gap-6 my-auto">
