@@ -130,6 +130,9 @@ export default function GamePage({ gameMode }: GamePageProps) {
           animal ? game.round : game.round >= 10 ? game.round + 1 : 10
         }
         gameState={game.state}
+        onRestart={() => {
+          void startGame(true);
+        }}
       />
       <GameSidePanel />
       <GameExistsDialog

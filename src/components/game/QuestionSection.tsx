@@ -19,6 +19,7 @@ type QuestionSectionProps = {
   expectedRounds: number;
   onAnswer: (answer: Answer) => void;
   gameState: GameState;
+  onRestart: () => void;
 };
 
 export default function QuestionSection({
@@ -28,6 +29,7 @@ export default function QuestionSection({
   round,
   expectedRounds,
   gameState,
+  onRestart,
 }: QuestionSectionProps) {
   const { t } = useTranslation();
   const progress = (round / expectedRounds) * 100;
@@ -50,7 +52,10 @@ export default function QuestionSection({
           />
         </CardHeader>
         {gameState === 'failed' ? (
-          <AnimalGuessFailureCardContent reason="unsure" />
+          <AnimalGuessFailureCardContent
+            reason="unsure"
+            onRestart={onRestart}
+          />
         ) : animal ? (
           <AnimalGuessCardContent animal={animal} />
         ) : (
