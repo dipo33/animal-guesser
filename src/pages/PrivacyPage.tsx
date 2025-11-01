@@ -1,5 +1,4 @@
 import BubbleSection from '@/components/containers/BubbleSection.tsx';
-import React from 'react';
 
 export function PrivacyPage() {
   return (

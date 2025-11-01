@@ -3,7 +3,6 @@ import { CardContent } from '@/components/ui/card.tsx';
 import { useI18nToken } from '@/i18n/index.ts';
 import type { AnimalDto } from '@/model/data.ts';
 import { motion } from 'framer-motion';
-import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 export type AnimalGuessCardContentProps = {

@@ -1,4 +1,3 @@
-import React from 'react';
 import '@/globals.css';
 import FeatureCard from '@/components/cards/FeatureCard.tsx';
 import { Badge } from '@/components/ui/badge.tsx';

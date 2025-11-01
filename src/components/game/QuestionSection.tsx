@@ -11,6 +11,7 @@ import {
   setFailureReason,
   setGameState,
   updateGame,
+  type Game,
   type GameState,
 } from '@/model/game.ts';
 import { Sparkles } from 'lucide-react';
@@ -20,8 +21,8 @@ import QuestionCardContent from './QuestionCardContent.tsx';
 
 type QuestionSectionProps = {
   progress: number;
-  question?: QuestionDto;
-  animal?: AnimalDto;
+  question: QuestionDto | null;
+  animal: AnimalDto | null;
   round: number;
   expectedRounds: number;
   onAnswer: (answer: Answer) => void;

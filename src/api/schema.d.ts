@@ -74,8 +74,8 @@ export interface components {
             type: "animal_guess";
         };
         GameDto: {
-            animal?: null | components["schemas"]["AnimalDto"];
-            question?: null | components["schemas"]["QuestionDto"];
+            animal: null | components["schemas"]["AnimalDto"];
+            question: null | components["schemas"]["QuestionDto"];
             question_history: components["schemas"]["QuestionHistoryEntryDto"][];
             /** Format: int32 */
             round: number;
@@ -103,8 +103,8 @@ export interface components {
         };
         I18nToken: {
             key: string;
-            ns?: string | null;
-            values?: unknown;
+            ns: string | null;
+            values: unknown;
         };
         QuestionDto: {
             token: components["schemas"]["I18nToken"];
@@ -143,10 +143,7 @@ export interface operations {
             };
             header?: never;
             path?: never;
-            cookie: {
-                /** @description Session ID defining your session */
-                sid: string;
-            };
+            cookie?: never;
         };
         requestBody: {
             content: {
@@ -186,10 +183,7 @@ export interface operations {
             };
             header?: never;
             path?: never;
-            cookie: {
-                /** @description Session ID defining your session */
-                sid: string;
-            };
+            cookie?: never;
         };
         requestBody?: never;
         responses: {
@@ -225,10 +219,7 @@ export interface operations {
             };
             header?: never;
             path?: never;
-            cookie?: {
-                /** @description Session ID defining your session */
-                sid?: string | null;
-            };
+            cookie?: never;
         };
         requestBody: {
             content: {

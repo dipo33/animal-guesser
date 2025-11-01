@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function AmbientGlow() {
   return (
     <div className="pointer-events-none absolute inset-0">

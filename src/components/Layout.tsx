@@ -1,4 +1,3 @@
-import React from 'react';
 import '@/globals.css';
 import Footer from '@/components/bars/Footer.tsx';
 import { Navbar } from '@/components/bars/Navbar.tsx';

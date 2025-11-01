@@ -399,7 +399,6 @@ function FeatureCard({ title, desc }: { title: string; desc: string }) {
 function GameScreen({
   history,
   progress,
-  setProgress,
 }: {
   history: { q: string; a: boolean }[];
   progress: number;

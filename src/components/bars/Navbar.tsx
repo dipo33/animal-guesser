@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
 import { Home, PawPrint, RotateCcw, Settings } from 'lucide-react';
-import React from 'react';
 import '@/globals.css';
 import LanguageSelector from '@/components/controls/LanguageSelector.tsx';
 import SoundControl from '@/components/controls/SoundControl.tsx';

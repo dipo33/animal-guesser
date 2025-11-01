@@ -1,6 +1,5 @@
 import { Badge } from '@/components/ui/badge.tsx';
 import { Button } from '@/components/ui/button.tsx';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function GameSidePanel() {

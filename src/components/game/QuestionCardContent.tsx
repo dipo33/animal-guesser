@@ -4,11 +4,10 @@ import { CardContent } from '@/components/ui/card.tsx';
 import TToken from '@/i18n/ttoken.tsx';
 import type { Answer, QuestionDto } from '@/model/data.ts';
 import { motion } from 'framer-motion';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 export type QuestionCardContent = {
-  question?: QuestionDto;
+  question: QuestionDto | null;
   onAnswer: (answer: Answer) => void;
 };
 

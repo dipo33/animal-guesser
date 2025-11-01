@@ -1,6 +1,5 @@
 import { Switch } from '@/components/ui/switch.tsx';
 import '@/globals.css';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 

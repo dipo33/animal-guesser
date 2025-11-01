@@ -41,7 +41,7 @@ export default function GamePage({ gameMode }: GamePageProps) {
   const answerQuestion = async (answer: Answer) => {
     const response = await api.answerQuestion(answer);
     updateGame(setGame, [
-      addQuestionToHistory(game.question, answer),
+      addQuestionToHistory(game.question!, answer),
       incrementRound(),
     ]);
 
@@ -66,7 +66,7 @@ export default function GamePage({ gameMode }: GamePageProps) {
           ...startResponse.data.game.question,
           question: startResponse.data.game.question,
           round: startResponse.data.game.round,
-          state: startResponse.data.game.state,
+          state: startResponse.data.game.state.type,
           questionHistory: startResponse.data.game.question_history.map(
             (entry) => ({
               question: entry.question,

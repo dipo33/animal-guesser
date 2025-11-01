@@ -1,3 +1,4 @@
+import { BASE_URL } from '@/config.ts';
 import type { I18nToken } from '@/model/data.ts';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -17,7 +18,7 @@ void i18n
     defaultNS: 'common',
     interpolation: { escapeValue: false },
     backend: {
-      loadPath: `${import.meta.env.BASE_URL}locales/{{lng}}/{{ns}}.json`,
+      loadPath: `${BASE_URL}/animal-guesser/locales/{{lng}}/{{ns}}.json`,
       queryStringParams: { v: '1.0.0' },
     },
     load: 'currentOnly',
@@ -35,16 +36,21 @@ void i18n
 export function useI18nToken(token: I18nToken): string {
   const { t, i18n } = useTranslation();
   const tForNs =
-    (ns?: string) => (key: string, values?: Record<string, string>) =>
+    (ns: string | null) => (key: string, values?: Record<string, string>) =>
       ns ? i18n.t(`${ns}:${key}`, values) : t(key, values);
 
-  const values = resolveValues(token.values || {}, tForNs);
+  const values = resolveValues(
+    (token.values as Record<string, string>) || {},
+    tForNs,
+  );
   return tForNs(token.ns)(token.key, values);
 }
 
 function resolveValues(
   values: Record<string, unknown>,
-  tForNs: (ns?: string) => (k: string, v: Record<string, string>) => string,
+  tForNs: (
+    ns: string | null,
+  ) => (k: string, v: Record<string, string>) => string,
 ): Record<string, string> {
   const out: Record<string, string> = {};
   for (const [key, value] of Object.entries(values || {})) {
@@ -52,10 +58,10 @@ function resolveValues(
       const token = value as I18nToken;
       out[key] = tForNs(token.ns)(
         token.key,
-        resolveValues(token.values || {}, tForNs),
+        resolveValues((token.values as Record<string, string>) || {}, tForNs),
       );
     } else {
-      out[key] = value;
+      out[key] = value as string;
     }
   }
   return out;

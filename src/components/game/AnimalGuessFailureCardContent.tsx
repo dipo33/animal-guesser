@@ -1,13 +1,12 @@
 import { Button } from '@/components/ui/button.tsx';
 import { CardContent } from '@/components/ui/card.tsx';
 import { motion } from 'framer-motion';
-import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 export type FailureReason = 'unsure' | 'unknown' | 'incorrect';
 
 export type AnimalGuessFailureCardContentProps = {
-  reason: FailureReason;
+  reason?: FailureReason;
   onRestart: () => void;
 };
 

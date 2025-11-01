@@ -1,3 +1,5 @@
+import { BASE_URL } from '@/config.ts';
+
 export interface ProblemDetails {
   type?: string;
   title?: string;
@@ -13,14 +15,19 @@ export class HttpError extends Error {
   body?: ProblemDetails | null;
   code?: string;
   constructor(status: number, body?: ProblemDetails | null) {
-    super(body?.title || body?.message || `HTTP ${status}`);
+    const message =
+      typeof body?.title === 'string'
+        ? body.title
+        : typeof body?.message === 'string'
+          ? body.message
+          : `HTTP ${status}`;
+
+    super(message);
     this.status = status;
     this.body = body;
     this.code = body?.code;
   }
 }
-
-const BASE_URL = 'http://localhost:3000';
 
 function tryParseJson(text: string): unknown {
   try {

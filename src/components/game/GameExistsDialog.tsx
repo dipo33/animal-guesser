@@ -10,7 +10,6 @@ import {
 import { Button } from '@/components/ui/button';
 import { AnimatePresence, motion } from 'framer-motion';
 import { AlertTriangle, Gamepad2 } from 'lucide-react';
-import * as React from 'react';
 
 export type GameExistsDialogProps = {
   /** Controls visibility of the dialog */

@@ -4,7 +4,6 @@ import type { Answer } from '@/model/data.ts';
 import type { HistoryEntry } from '@/model/game.ts';
 import { AnimatePresence, motion } from 'framer-motion';
 import { History } from 'lucide-react';
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 type QuestionHistoryProps = {

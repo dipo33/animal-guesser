@@ -36,7 +36,7 @@ export const updateGame = (
 };
 
 export const setQuestion =
-  (question?: QuestionDto) =>
+  (question: QuestionDto | null) =>
   (g: Game): Game => ({
     ...g,
     question,
