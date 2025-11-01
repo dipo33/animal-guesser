@@ -49,7 +49,7 @@
   "fail.simple.title.unknown": "Nepodarilo sa mi to uhádnuť",
   "fail.simple.subtitle.unknown": "Buď toto zviera ešte nepoznám, alebo niektoré odpovede mu nesedeli",
   "fail.simple.title.unsure": "Došli mi otázky",
-  "fail.simple.subtitle.unsure": "Nedokážem určiž jediné zviera, pretože bolo príliš veľa odpovedí „nie som si istý/á“.",
+  "fail.simple.subtitle.unsure": "Nedokážem určiť jediné zviera, pretože bolo príliš veľa odpovedí „nie som si istý/á“.",
   "fail.simple.title.incorrect": "Neuhádol som správne",
   "fail.simple.subtitle.incorrect": "Vyzerá to, že môj tip nezodpovedal zvieraťu, na ktoré si myslel.",
 
