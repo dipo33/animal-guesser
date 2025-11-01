@@ -1,11 +1,18 @@
 import AnimalGuessCardContent from '@/components/game/AnimalGuessCardContent.tsx';
-import AnimalGuessFailureCardContent from '@/components/game/AnimalGuessFailureCardContent.tsx';
+import AnimalGuessFailureCardContent, {
+  type FailureReason,
+} from '@/components/game/AnimalGuessFailureCardContent.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card.tsx';
 import { Input } from '@/components/ui/input.tsx';
 import { Progress } from '@/components/ui/progress.tsx';
 import type { AnimalDto, Answer, QuestionDto } from '@/model/data.ts';
-import type { GameState } from '@/model/game.ts';
+import {
+  setFailureReason,
+  setGameState,
+  updateGame,
+  type GameState,
+} from '@/model/game.ts';
 import { Sparkles } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -20,6 +27,8 @@ type QuestionSectionProps = {
   onAnswer: (answer: Answer) => void;
   gameState: GameState;
   onRestart: () => void;
+  setGame: React.Dispatch<React.SetStateAction<Game>>;
+  failureReason?: FailureReason;
 };
 
 export default function QuestionSection({
@@ -30,6 +39,8 @@ export default function QuestionSection({
   expectedRounds,
   gameState,
   onRestart,
+  setGame,
+  failureReason,
 }: QuestionSectionProps) {
   const { t } = useTranslation();
   const progress = (round / expectedRounds) * 100;
@@ -53,11 +64,20 @@ export default function QuestionSection({
         </CardHeader>
         {gameState === 'failed' ? (
           <AnimalGuessFailureCardContent
-            reason="unsure"
+            reason={failureReason}
             onRestart={onRestart}
           />
         ) : animal ? (
-          <AnimalGuessCardContent animal={animal} />
+          <AnimalGuessCardContent
+            animal={animal}
+            onIncorrectGuess={() =>
+              updateGame(setGame, [
+                setGameState('failed'),
+                setFailureReason('incorrect'),
+              ])
+            }
+            onCorrectGuess={onRestart}
+          />
         ) : (
           <QuestionCardContent question={question} onAnswer={onAnswer} />
         )}

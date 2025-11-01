@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
-export type FailureReason = 'unsure' | 'unknown';
+export type FailureReason = 'unsure' | 'unknown' | 'incorrect';
 
 export type AnimalGuessFailureCardContentProps = {
   reason: FailureReason;
@@ -21,6 +21,8 @@ export default function AnimalGuessFailureCardContent({
     switch (reason) {
       case 'unsure':
         return 'fail.simple.title.unsure';
+      case 'incorrect':
+        return 'fail.simple.title.incorrect';
       default:
         return 'fail.simple.title.unknown';
     }
@@ -30,6 +32,8 @@ export default function AnimalGuessFailureCardContent({
     switch (reason) {
       case 'unsure':
         return 'fail.simple.subtitle.unsure';
+      case 'incorrect':
+        return 'fail.simple.subtitle.incorrect';
       default:
         return 'fail.simple.subtitle.unknown';
     }

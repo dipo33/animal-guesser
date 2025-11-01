@@ -49,7 +49,9 @@
   "fail.simple.title.unknown": "Nepodařilo se mi to uhodnout",
   "fail.simple.subtitle.unknown": "Buď tohle zvíře ještě neznám, nebo některé odpovědi mu neodpovídaly",
   "fail.simple.title.unsure": "Došly mi otázky",
-  "fail.simple.subtitle.unsure": "Protože bylo příliš mnoho odpovědí „nejsem si jistý/á“, nedokážu to zúžit na jedno zvíře.",
+  "fail.simple.subtitle.unsure": "Nedokážu určit jediné zvíře, protože bylo příliš mnoho odpovědí „nejsem si jistý/á“",
+  "fail.simple.title.incorrect": "Neuhádnul jsem správně",
+  "fail.simple.subtitle.incorrect": "Vypadá to, že můj tip neodpovídal zvířeti, na které jsi myslel/a.",
 
   "guess_prompt": "Je tvoje zvíře <0>{{name}}</0>?",
   "thinking": "Přemýšlím …",

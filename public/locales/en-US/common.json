@@ -50,6 +50,8 @@
   "fail.simple.subtitle.unknown": "Either I don’t know this animal yet, or some of the answers didn’t match it",
   "fail.simple.title.unsure": "I ran out of questions",
   "fail.simple.subtitle.unsure": "Because there were too many “unsure” answers, I can't narrow it down to one animal.",
+  "fail.simple.title.incorrect": "I guessed wrong",
+  "fail.simple.subtitle.incorrect": "Looks like my guess didn’t match the animal you were thinking of.",
 
   "guess_prompt": "Is your animal called <0>{{name}}</0>?",
   "thinking": "Thinking …",

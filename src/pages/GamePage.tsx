@@ -8,6 +8,7 @@ import {
   addQuestionToHistory,
   defaultGame,
   incrementRound,
+  setFailureReason,
   setGameState,
   setQuestion,
   updateGame,
@@ -33,7 +34,7 @@ export default function GamePage({ gameMode }: GamePageProps) {
       const question = response.data.question;
       updateGame(setGame, [setQuestion(question)]);
     } else if (response.data?.type == 'no_questions_left') {
-      updateGame(setGame, [setGameState('failed')]);
+      updateGame(setGame, [setGameState('failed'), setFailureReason('unsure')]);
     }
   };
 
@@ -105,6 +106,8 @@ export default function GamePage({ gameMode }: GamePageProps) {
         onRestart={() => {
           void startGame(true);
         }}
+        setGame={setGame}
+        failureReason={game.failureReason}
       />
       <GameSidePanel />
       <GameExistsDialog

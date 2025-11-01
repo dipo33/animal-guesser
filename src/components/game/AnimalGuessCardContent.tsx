@@ -1,19 +1,21 @@
 import { Button } from '@/components/ui/button.tsx';
 import { CardContent } from '@/components/ui/card.tsx';
 import { useI18nToken } from '@/i18n/index.ts';
-import type { AnimalDto, Answer } from '@/model/data.ts';
+import type { AnimalDto } from '@/model/data.ts';
 import { motion } from 'framer-motion';
 import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 export type AnimalGuessCardContentProps = {
   animal: AnimalDto;
-  onAnswer: (answer: Answer) => void;
+  onIncorrectGuess: () => void;
+  onCorrectGuess: () => void;
 };
 
 export default function AnimalGuessCardContent({
   animal,
-  onAnswer,
+  onIncorrectGuess,
+  onCorrectGuess,
 }: AnimalGuessCardContentProps) {
   const { t } = useTranslation();
 
@@ -44,7 +46,7 @@ export default function AnimalGuessCardContent({
         <Button
           size="lg"
           className="rounded-xl px-8 py-6 text-base bg-cyan-400/90 hover:bg-cyan-300/100 text-black shadow-[0_8px_24px_rgba(34,211,238,0.35)]"
-          onClick={() => onAnswer('yes')}
+          onClick={() => onCorrectGuess()}
         >
           {t('answer.yes')}
         </Button>
@@ -53,7 +55,7 @@ export default function AnimalGuessCardContent({
           size="lg"
           variant="secondary"
           className="rounded-xl px-8 py-6 text-base bg-rose-500/80 hover:bg-rose-500/100 border border-white/20 text-white/90"
-          onClick={() => onAnswer('no')}
+          onClick={() => onIncorrectGuess()}
         >
           {t('answer.no')}
         </Button>

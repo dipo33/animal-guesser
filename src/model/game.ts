@@ -1,3 +1,4 @@
+import type { FailureReason } from '@/components/game/AnimalGuessFailureCardContent.tsx';
 import type { Answer, QuestionDto } from '@/model/data.ts';
 import type React from 'react';
 
@@ -14,6 +15,7 @@ export type Game = {
   round: number;
   questionHistory: Array<HistoryEntry>;
   state: GameState;
+  failureReason?: FailureReason;
 };
 
 export function defaultGame(): Game {
@@ -22,6 +24,7 @@ export function defaultGame(): Game {
     round: 1,
     questionHistory: [],
     state: 'in_progress',
+    failureReason: undefined,
   };
 }
 
@@ -65,4 +68,11 @@ export const setGameState =
   (g: Game): Game => ({
     ...g,
     state: state,
+  });
+
+export const setFailureReason =
+  (reason?: FailureReason) =>
+  (g: Game): Game => ({
+    ...g,
+    failureReason: reason,
   });
