@@ -1,11 +1,11 @@
-import { BASE_URL } from '@/config.ts';
+import { API_BASE_URL } from '@/config.ts';
 import type { Answer, GameMode } from '@/model/data.ts';
 import i18n from 'i18next';
 import createClient from 'openapi-fetch';
 import type { paths } from './schema';
 
 const api_raw = createClient<paths>({
-  baseUrl: BASE_URL,
+  baseUrl: API_BASE_URL,
   fetch: (input: RequestInfo | URL, init?: RequestInit) => {
     return fetch(input, { ...init, credentials: 'include' });
   },

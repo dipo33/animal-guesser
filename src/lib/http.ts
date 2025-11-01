@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/config.ts';
+import { API_BASE_URL } from '@/config.ts';
 
 export interface ProblemDetails {
   type?: string;
@@ -44,7 +44,7 @@ export async function http<T>(
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 10_000);
   try {
-    const res = await fetch(`${BASE_URL}${path}`, {
+    const res = await fetch(`${API_BASE_URL}${path}`, {
       ...init,
       credentials: 'include',
       headers: { Accept: 'application/json', ...(init.headers ?? {}) },

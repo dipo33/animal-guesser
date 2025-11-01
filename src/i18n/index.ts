@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/config.ts';
+import { APP_ORIGIN } from '@/config.ts';
 import type { I18nToken } from '@/model/data.ts';
 import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
@@ -18,7 +18,7 @@ void i18n
     defaultNS: 'common',
     interpolation: { escapeValue: false },
     backend: {
-      loadPath: `${BASE_URL}/animal-guesser/locales/{{lng}}/{{ns}}.json`,
+      loadPath: `${APP_ORIGIN}/locales/{{lng}}/{{ns}}.json`,
       queryStringParams: { v: '1.0.0' },
     },
     load: 'currentOnly',
