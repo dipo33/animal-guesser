@@ -87,8 +87,28 @@ export default function GamePage({ gameMode }: GamePageProps) {
     const startResponse = await api.start(gameMode, force);
     if (startResponse.data?.type === 'new_game_started') {
       setGame(defaultGame());
+      setAnimal(null);
       await getQuestion();
     } else if (startResponse.data?.type === 'game_already_exists') {
+      setAnimal(startResponse.data.game.animal);
+      setGame({
+        ...startResponse.data.game.question,
+        question: startResponse.data.game.question,
+        round: startResponse.data.game.round,
+        state: startResponse.data.game.state,
+        questionHistory: startResponse.data.game.question_history.map(
+          (entry) => ({
+            question: entry.question,
+            answer: entry.answer,
+            id: crypto.randomUUID(),
+          }),
+        ),
+      });
+
+      if (game.question == null) {
+        await getQuestion();
+      }
+
       setShowDialog(true);
     }
   };

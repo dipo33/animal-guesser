@@ -73,8 +73,26 @@ export interface components {
             /** @enum {string} */
             type: "animal_guess";
         };
+        GameDto: {
+            animal?: null | components["schemas"]["AnimalDto"];
+            question?: null | components["schemas"]["QuestionDto"];
+            question_history: components["schemas"]["QuestionHistoryEntryDto"][];
+            /** Format: int32 */
+            round: number;
+            state: components["schemas"]["GameStateDto"];
+        };
         /** @enum {string} */
         GameMode: "classic" | "expert";
+        GameStateDto: {
+            /** @enum {string} */
+            type: "in_progress";
+        } | {
+            /** @enum {string} */
+            type: "failed";
+        } | {
+            /** @enum {string} */
+            type: "finished";
+        };
         GetQuestionResponse: {
             question: components["schemas"]["QuestionDto"];
             /** @enum {string} */
@@ -91,6 +109,10 @@ export interface components {
         QuestionDto: {
             token: components["schemas"]["I18nToken"];
         };
+        QuestionHistoryEntryDto: {
+            answer: components["schemas"]["Answer"];
+            question: components["schemas"]["QuestionDto"];
+        };
         /** @description --------------- Input Body --------------- */
         StartGameBody: {
             force: boolean;
@@ -101,6 +123,7 @@ export interface components {
             /** @enum {string} */
             type: "new_game_started";
         } | {
+            game: components["schemas"]["GameDto"];
             /** @enum {string} */
             type: "game_already_exists";
         };
