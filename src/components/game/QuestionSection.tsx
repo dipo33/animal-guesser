@@ -2,6 +2,8 @@ import AnimalGuessCardContent from '@/components/game/AnimalGuessCardContent.tsx
 import AnimalGuessFailureCardContent, {
   type FailureReason,
 } from '@/components/game/AnimalGuessFailureCardContent.tsx';
+import MapQuestionCardContent from '@/components/game/MapQuestionCardContent.tsx';
+import RegionMap from '@/components/game/RegionMap.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { Card, CardHeader, CardTitle } from '@/components/ui/card.tsx';
 import { Input } from '@/components/ui/input.tsx';
@@ -14,6 +16,7 @@ import {
   type Game,
   type GameState,
 } from '@/model/game.ts';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -30,6 +33,7 @@ type QuestionSectionProps = {
   onRestart: () => void;
   setGame: React.Dispatch<React.SetStateAction<Game>>;
   failureReason?: FailureReason;
+  showMap: boolean;
 };
 
 export default function QuestionSection({
@@ -42,14 +46,15 @@ export default function QuestionSection({
   onRestart,
   setGame,
   failureReason,
+  showMap,
 }: QuestionSectionProps) {
   const { t } = useTranslation();
   const progress = (round / expectedRounds) * 100;
 
   return (
-    <section className="col-span-12 lg:col-span-6 space-y-6">
-      <Card className="rounded-3xl glass shadow-2xl">
-        <CardHeader className="pb-2">
+    <section className="lg:col-span-6 space-y-6 h-full min-h-0 flex flex-col">
+      <Card className="rounded-3xl glass shadow-2xl px-6 flex-1 min-h-0 flex flex-col gap-0">
+        <CardHeader className="pb-2 px-0">
           <div className="flex items-center justify-between">
             <CardTitle className="text-white/90">
               {t('round', { round: round })}
@@ -80,23 +85,32 @@ export default function QuestionSection({
             onCorrectGuess={onRestart}
           />
         ) : (
-          <QuestionCardContent question={question} onAnswer={onAnswer} />
+          <QuestionCardContent
+            question={question}
+            onAnswer={onAnswer}
+            showMap={showMap}
+          />
         )}
       </Card>
 
       {/* Suggestion / input row */}
-      <div className="rounded-2xl glass p-4 flex flex-col sm:flex-row items-center gap-3">
-        <div className="flex items-center gap-2 text-white/70 w-fit">
-          <Sparkles className="h-4 w-4" /> {t('label.improve_me')}
+      {showMap ? null : (
+        <div className="rounded-2xl glass p-4 flex flex-col sm:flex-row items-center gap-3">
+          {' '}
+          <div className="flex items-center gap-2 text-white/70 w-fit">
+            {' '}
+            <Sparkles className="h-4 w-4" /> {t('label.improve_me')}{' '}
+          </div>{' '}
+          <Input
+            placeholder={t('placeholder.suggest_question')}
+            className="bg-white/5 border-white/15 text-white placeholder:text-white/40 flex-1"
+          />{' '}
+          <Button className="bg-white/10 hover:bg-white/20 border border-white/20 text-white">
+            {' '}
+            {t('button.submit')}{' '}
+          </Button>{' '}
         </div>
-        <Input
-          placeholder={t('placeholder.suggest_question')}
-          className="bg-white/5 border-white/15 text-white placeholder:text-white/40 flex-1"
-        />
-        <Button className="bg-white/10 hover:bg-white/20 border border-white/20 text-white">
-          {t('button.submit')}
-        </Button>
-      </div>
+      )}
     </section>
   );
 }

@@ -7,35 +7,31 @@ import type { Answer, QuestionDto } from '@/model/data.ts';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-export type QuestionCardContent = {
+export type MapQuestionCardContent = {
   question: QuestionDto | null;
   onAnswer: (answer: Answer) => void;
-  showMap: boolean;
 };
 
-export default function QuestionCardContent({
+export default function MapQuestionCardContent({
   question,
   onAnswer,
-  showMap,
-}: QuestionCardContent) {
+}: MapQuestionCardContent) {
   const { t } = useTranslation();
 
   return (
-    <CardContent className="h-full min-h-0 flex flex-col">
-      <div className="flex-1 min-h-0 grid place-items-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 4 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35 }}
-          className="text-3xl sm:text-4xl font-semibold tracking-tight text-white/95 text-center px-4"
-        >
-          {question ? <TToken token={question.token} /> : t('thinking')}
-        </motion.h1>
-      </div>
+    <CardContent>
+      <motion.h1
+        initial={{ opacity: 0, y: 4 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35 }}
+        className="text-3xl sm:text-4xl font-semibold tracking-tight text-white/95 text-center py-6"
+      >
+        {question ? <TToken token={question.token} /> : t('thinking')}
+      </motion.h1>
 
-      {showMap ? <RegionMap /> : null}
+      <RegionMap />
 
-      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-6">
+      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 p-4">
         <Button
           size="lg"
           className="rounded-xl px-8 py-6 text-base bg-cyan-400/90 hover:bg-cyan-300/100 text-black shadow-[0_8px_24px_rgba(34,211,238,0.35)]"

@@ -14,6 +14,8 @@ import {
   updateGame,
   type Game,
 } from '@/model/game.ts';
+import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -27,6 +29,7 @@ export default function GamePage({ gameMode }: GamePageProps) {
   const [showDialog, setShowDialog] = React.useState(false);
   const [animal, setAnimal] = useState<AnimalDto | null>(null);
   const [game, setGame] = useState<Game>(() => defaultGame());
+  const [showMap, setShowMap] = useState(true);
 
   const getQuestion = async () => {
     const response = await api.getQuestion();
@@ -91,25 +94,47 @@ export default function GamePage({ gameMode }: GamePageProps) {
   }, [startGame]);
 
   return (
-    <main className="mx-auto max-w-[1200px] px-6 py-6 grid grid-cols-12 gap-6 my-auto">
-      <QuestionHistory history={game.questionHistory} />
-      <GameSection
-        progress={69}
-        question={game.question}
-        animal={animal}
-        onAnswer={answerQuestion}
-        round={game.round}
-        expectedRounds={
-          animal ? game.round : game.round >= 10 ? game.round + 1 : 10
-        }
-        gameState={game.state}
-        onRestart={() => {
-          void startGame(true);
-        }}
-        setGame={setGame}
-        failureReason={game.failureReason}
-      />
-      <GameSidePanel />
+    <motion.main
+      layout
+      transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+      className={clsx(
+        'mx-auto w-full px-6 py-6 my-auto flex gap-6 items-stretch max-h-[80vh]',
+        showMap ? 'max-w-[1800px] h-[80vh]' : 'max-w-[1200px] h-[60vh]',
+        'transition-[max-width] duration-500 ease-out',
+      )}
+    >
+      <section className="w-[260px] shrink-0 h-full min-h-0">
+        <QuestionHistory history={game.questionHistory} />
+      </section>
+
+      <motion.section
+        layout
+        className="min-w-0 flex-1 h-full min-h-0"
+        transition={{ type: 'spring', stiffness: 120, damping: 20 }}
+      >
+        <GameSection
+          progress={69}
+          question={game.question}
+          animal={animal}
+          onAnswer={answerQuestion}
+          round={game.round}
+          expectedRounds={
+            animal ? game.round : game.round >= 10 ? game.round + 1 : 10
+          }
+          gameState={game.state}
+          onRestart={() => {
+            void startGame(true);
+          }}
+          setGame={setGame}
+          failureReason={game.failureReason}
+          showMap={showMap}
+        />
+      </motion.section>
+
+      <section className="w-[260px] shrink-0">
+        <GameSidePanel showMap={showMap} setShowMap={setShowMap} />
+      </section>
+
       <GameExistsDialog
         open={showDialog}
         onClosed={() => {
@@ -123,6 +148,6 @@ export default function GamePage({ gameMode }: GamePageProps) {
           void startGame(true);
         }}
       />
-    </main>
+    </motion.main>
   );
 }

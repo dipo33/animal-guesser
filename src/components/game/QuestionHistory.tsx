@@ -14,19 +14,21 @@ export default function QuestionHistory({ history }: QuestionHistoryProps) {
   const { t } = useTranslation();
 
   return (
-    <aside className="hidden lg:block col-span-3 glass rounded-2xl p-4">
-      <div className="flex items-center justify-between mb-2">
-        <div className="flex items-center gap-2 text-white/90">
-          <History className="h-4 w-4" /> {t('question_history')}
+    <aside className="hidden lg:block glass rounded-2xl p-4 h-full overflow-hidden">
+      <div className="flex h-full flex-col">
+        <div className="flex items-center justify-between mb-2 shrink-0">
+          <div className="flex items-center gap-2 text-white/90">
+            <History className="h-4 w-4" /> {t('question_history')}
+          </div>
+          <Badge variant="outline" className="border-white/15 text-white/70">
+            {history.length}
+          </Badge>
         </div>
-        <Badge variant="outline" className="border-white/15 text-white/70">
-          {history.length}
-        </Badge>
-      </div>
-      <div className="space-y-3 max-h-[60vh] h-[60vh] overflow-y-auto pr-1">
+
+        {/* single scroll container */}
         <motion.div
           layout
-          className="space-y-3 max-h-[60vh] h-[60vh] overflow-y-auto pr-1"
+          className="flex-1 min-h-0 space-y-3 overflow-y-auto pr-1"
         >
           <AnimatePresence initial={false}>
             {history.map((entry, i) => (

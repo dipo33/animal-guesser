@@ -2,11 +2,19 @@ import { Badge } from '@/components/ui/badge.tsx';
 import { Button } from '@/components/ui/button.tsx';
 import { useTranslation } from 'react-i18next';
 
-export default function GameSidePanel() {
+type GameSidePanelProps = {
+  showMap: boolean;
+  setShowMap: (boolean) => void;
+};
+
+export default function GameSidePanel({
+  showMap,
+  setShowMap,
+}: GameSidePanelProps) {
   const { t } = useTranslation();
 
   return (
-    <aside className="hidden lg:block col-span-3 glass rounded-2xl p-4 space-y-4">
+    <aside className="hidden lg:block glass rounded-2xl p-4 space-y-4 h-full">
       <div className="text-white/90 font-medium">{t('current_guess')}</div>
       <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
         <div className="text-2xl font-semibold">🦝 Raccoon</div>
@@ -42,6 +50,7 @@ export default function GameSidePanel() {
         <Button
           variant="secondary"
           className="bg-rose-500/80  text-white/90 border border-white/20 hover:bg-rose-500/100"
+          onClick={() => setShowMap(!showMap)}
         >
           Give up
         </Button>
